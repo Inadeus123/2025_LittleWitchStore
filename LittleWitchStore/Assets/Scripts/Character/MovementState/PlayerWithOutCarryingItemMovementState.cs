@@ -34,7 +34,7 @@ public class PlayerWithOutCarryingItemMovementState : IState
 
     public void HandleInput()
     {
-        
+        ReadMovementInput();
     }
 
     public void Update()
@@ -70,5 +70,11 @@ public class PlayerWithOutCarryingItemMovementState : IState
     public void OnAnimationTransitionEvent()
     {
         
+    }
+    
+    private void ReadMovementInput()
+    {
+        // Read movement input here
+        stateMachine.PlayerReusableData.MovementInput = stateMachine.Player.playerInput.PlayerNormalInputActions.Movement.ReadValue<Vector2>();
     }
 }

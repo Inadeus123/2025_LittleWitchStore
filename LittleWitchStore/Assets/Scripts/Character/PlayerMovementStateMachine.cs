@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovementStateMachine : StateMachine
 {
     public Player Player { get; private set; }
+    public PlayerReusableData PlayerReusableData { get;}
     public PlayerIdlingState IdlingState { get; private set; }
     public PlayerWalkingState WalkingState { get; private set; }
     public PlayerStoppingState StoppingState { get; private set; }
@@ -16,11 +17,15 @@ public class PlayerMovementStateMachine : StateMachine
     public PlayerMovementStateMachine(Player player)
     {
         Player = player;
-        IdlingState = new PlayerIdlingState();
-        WalkingState = new PlayerWalkingState();
-        StoppingState = new PlayerStoppingState();
+        PlayerReusableData = new PlayerReusableData();
         
-        StunnedState = new PlayerStunnedState();
-        HitReactState = new PlayerHitReactState();
+        //行动State
+        IdlingState = new PlayerIdlingState(this);
+        WalkingState = new PlayerWalkingState(this);
+        StoppingState = new PlayerStoppingState(this);
+        
+        //受击State
+        StunnedState = new PlayerStunnedState(this);
+        HitReactState = new PlayerHitReactState(this);
     }
 }

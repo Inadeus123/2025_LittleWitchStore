@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerHitReactState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerHitReactState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerIdlingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerIdlingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerStoppingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerStoppingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerStunnedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerStunnedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerWalkingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerWalkingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerWithOutCarryingItemMovementState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerWithOutCarryingItemMovementState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/PlayerMovementStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/PlayerMovementStateMachine.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +24,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.11/Editor/ScriptableRendererDataEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -96,7 +105,8 @@
       <workItem from="1745901278124" duration="1159000" />
       <workItem from="1745904556029" duration="2752000" />
       <workItem from="1746008338755" duration="2004000" />
-      <workItem from="1746019070072" duration="5810000" />
+      <workItem from="1746019070072" duration="5896000" />
+      <workItem from="1746079936640" duration="6320000" />
     </task>
     <servers />
   </component>
