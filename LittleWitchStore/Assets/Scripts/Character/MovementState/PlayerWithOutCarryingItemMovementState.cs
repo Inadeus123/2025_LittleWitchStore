@@ -2,79 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWithOutCarryingItemMovementState : IState
+public class PlayerWithOutCarryingItemMovementState : PlayerMovementState
 {
-    protected PlayerMovementStateMachine stateMachine;
-    protected readonly PlayerWithOutCarryingItemMovementData playerWithOutCarryingItemMovementData;
-    protected readonly PlayerWithCarryingItemMovementData playerWithCarryingItemMovementData;
-    
-    public PlayerWithOutCarryingItemMovementState(PlayerMovementStateMachine playerMovementStateMachine)
-    {
-        stateMachine = playerMovementStateMachine;
-        playerWithOutCarryingItemMovementData = playerMovementStateMachine.Player.PlayerData.PlayerWithOutCarryingItemMovementData;
-        playerWithCarryingItemMovementData = playerMovementStateMachine.Player.PlayerData.PlayerWithCarryingItemMovementData;
-        
-        InitializeData();
-    }
-
-    private void InitializeData()
-    {
-        // Initialize data here
-    }
-
-    public void Enter()
-    {
-        
-    }
-
-    public void Exit()
-    {
-        
-    }
-
-    public void HandleInput()
-    {
-        ReadMovementInput();
-    }
-
-    public void Update()
-    {
-       
-    }
-
-    public void PhysicsUpdate()
-    {
-       
-    }
-
-    public void OnTriggerEnter(Collider collider)
-    {
-       
-    }
-
-    public void OnTriggerExit(Collider collider)
-    {
-      
-    }
-
-    public void OnAnimationEnterEvent()
-    {
-       
-    }
-
-    public void OnAnimationExitEvent()
-    {
-       
-    }
-
-    public void OnAnimationTransitionEvent()
+    public PlayerWithOutCarryingItemMovementState(PlayerMovementStateMachine playerMovementStateMachine) : base(playerMovementStateMachine)
     {
         
     }
     
-    private void ReadMovementInput()
-    {
-        // Read movement input here
-        stateMachine.PlayerReusableData.MovementInput = stateMachine.Player.playerInput.PlayerNormalInputActions.Movement.ReadValue<Vector2>();
-    }
+   
 }

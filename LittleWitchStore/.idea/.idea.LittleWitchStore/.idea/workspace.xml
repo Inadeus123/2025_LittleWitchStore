@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerHitReactState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerHitReactState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerIdlingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerIdlingState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerStoppingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerStoppingState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerStunnedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerStunnedState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerWalkingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerWalkingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerCarryingItemMovementState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerCarryingItemMovementState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerWithOutCarryingItemMovementState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/MovementState/PlayerWithOutCarryingItemMovementState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/PlayerMovementStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/PlayerMovementStateMachine.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +100,7 @@
       <workItem from="1745904556029" duration="2752000" />
       <workItem from="1746008338755" duration="2004000" />
       <workItem from="1746019070072" duration="5896000" />
-      <workItem from="1746079936640" duration="6320000" />
+      <workItem from="1746079936640" duration="7996000" />
     </task>
     <servers />
   </component>
