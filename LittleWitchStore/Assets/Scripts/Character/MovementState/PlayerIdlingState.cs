@@ -8,4 +8,10 @@ public class PlayerIdlingState:PlayerWithOutCarryingItemMovementState
     {
         
     }
+    
+    public override void Enter()
+    {
+        base.Enter();
+        stateMachine.PlayerReusableData.MovementSpeedModifier = 0f;
+    }
 }

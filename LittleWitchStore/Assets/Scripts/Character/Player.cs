@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,8 +14,8 @@ public class Player : MonoBehaviour
    
    public Camera mainCamera;
    public PlayerInput playerInput;
-   private CharacterController playerCharacterController;
-   Vector3 velocity;
+   public CharacterController playerCharacterController;
+   [ReadOnly] public Vector3 velocity;
    
    private PlayerMovementStateMachine playerMovementStateMachine;
 
@@ -22,6 +24,8 @@ public class Player : MonoBehaviour
       playerCharacterController = GetComponent<CharacterController>();
       playerMovementStateMachine = new PlayerMovementStateMachine(this);
       playerInput = GetComponent<PlayerInput>();
+      
+      mainCamera = Camera.main;
    }
 
    private void Start()
@@ -31,7 +35,37 @@ public class Player : MonoBehaviour
    
    private void Update()
    {
-      // Handle player input and movement here
       playerMovementStateMachine.HandleInput();
+      playerMovementStateMachine.Update();
+   }
+
+   private void FixedUpdate()
+   {
+      playerMovementStateMachine.PhysicsUpdate();
+   }
+   
+   private void OnTriggerEnter(Collider other)
+   {
+      playerMovementStateMachine.OnTriggerEnter(other);
+   }
+   
+   private void OnTriggerExit(Collider other)
+   {
+      playerMovementStateMachine.OnTriggerExit(other);
+   }
+   
+   public void OnMovementStateAnimationEnterEvent()
+   {
+      playerMovementStateMachine.OnAnimationEnterEvent();
+   }
+   
+   public void OnMovementStateAnimationExitEvent()
+   {
+      playerMovementStateMachine.OnAnimationExitEvent();
+   }
+   
+   public void OnMovementStateAnimationTransitionEvent()
+   {
+      playerMovementStateMachine.OnAnimationTransitionEvent();
    }
 }

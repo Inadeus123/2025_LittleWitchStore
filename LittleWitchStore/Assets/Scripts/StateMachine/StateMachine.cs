@@ -15,16 +15,20 @@ public class StateMachine
       currentState.Enter();
    }
 
+   //监听当前状态的输入
    public void HandleInput()
    {
       currentState?.HandleInput();
    }
 
+   
+   //执行当前状态的更新
    public void Update()
    {
       currentState?.Update();
    }
 
+   //执行当前状态的物理更新（运动相关）
    public void PhysicsUpdate()
    {
       currentState?.PhysicsUpdate();
