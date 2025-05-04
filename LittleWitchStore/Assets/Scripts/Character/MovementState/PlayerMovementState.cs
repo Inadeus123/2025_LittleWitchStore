@@ -25,7 +25,8 @@ public class PlayerMovementState : IState
 
     public virtual void Enter()
     {
-        
+        playerWithOutCarryingItemMovementData.CacheRuntime();
+        Debug.Log("Current State: " + this.GetType().Name);
     }
 
     public virtual void Exit()
@@ -72,8 +73,17 @@ public class PlayerMovementState : IState
     {
         
     }
+
+    protected void StartAnimation(int animationHash)
+    {
+        stateMachine.Player.Animator.SetBool(animationHash, true);
+    }
     
-     
+    protected void StopAnimation(int animationHash)
+    {
+        stateMachine.Player.Animator.SetBool(animationHash, false);
+    }
+
     private void ReadMovementInput()
     {
         // Read movement input here
@@ -123,4 +133,10 @@ public class PlayerMovementState : IState
         
         stateMachine.Player.playerCharacterController.Move(stateMachine.Player.velocity * Time.deltaTime);
     }
+
+    protected virtual void AddInputActionsCallbacks()
+    {
+        //stateMachine.Player.Input
+    }
+    
 }

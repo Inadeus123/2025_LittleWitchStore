@@ -9,5 +9,8 @@ public class PlayerWithOutCarryingItemMovementState : PlayerMovementState
         
     }
     
-   
+    protected virtual void OnMove()
+    {
+        stateMachine.ChangeState(stateMachine.WalkingState);
+    }
 }

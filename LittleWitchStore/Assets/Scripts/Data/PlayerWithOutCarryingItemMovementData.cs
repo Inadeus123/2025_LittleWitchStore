@@ -25,8 +25,8 @@ public class PlayerWithOutCarryingItemMovementData
     public float gravity = -30f;
 
     // Helper to compute accel/decel values (cached at runtime)
-    [NonSerialized] public float walkAccel = 10f;   // units / s²
-    [NonSerialized] public float walkDecel = 10f;
+    [NonSerialized] public float walkAccel ;   // units / s²
+    [NonSerialized] public float walkDecel ;
 
     public void CacheRuntime() {
         walkAccel = walkAccelTime <= 0 ? float.PositiveInfinity : walkSpeed / walkAccelTime;

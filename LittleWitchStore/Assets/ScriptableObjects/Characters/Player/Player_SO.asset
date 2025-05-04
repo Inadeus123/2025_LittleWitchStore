@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294134693fdc3a4ea4f66e797809c60, type: 3}
   m_Name: Player_SO
   m_EditorClassIdentifier: 
-  <PlayerWithCarryingItemMovementData>k__BackingField: {fileID: 0}
+  <PlayerWithOutCarryingItemMovementData>k__BackingField:
+    walkSpeed: 7
+    walkAccelTime: 0.3
+    walkDecelTime: 0.1
+    dashSpeed: 8
+    dashDuration: 0.3
+    dashCooldown: 1
+    proneRecoverTime: 0.6
+    turnSpeed: 720
+    useGravity: 0
+    gravity: -30

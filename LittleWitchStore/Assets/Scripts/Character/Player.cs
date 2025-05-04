@@ -18,13 +18,17 @@ public class Player : MonoBehaviour
    [ReadOnly] public Vector3 velocity;
    
    private PlayerMovementStateMachine playerMovementStateMachine;
+   [field: Header("Animations")]
+   [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
+   public Animator Animator { get; private set; }
 
    private void Awake()
    {
       playerCharacterController = GetComponent<CharacterController>();
       playerMovementStateMachine = new PlayerMovementStateMachine(this);
+      AnimationData.Initialize();
       playerInput = GetComponent<PlayerInput>();
-      
+      Animator = GetComponent<Animator>();
       mainCamera = Camera.main;
    }
 
