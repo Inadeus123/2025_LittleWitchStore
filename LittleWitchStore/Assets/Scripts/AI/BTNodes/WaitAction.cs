@@ -17,7 +17,7 @@ public class WaitAction : Action
         waitCounter = waitTime.Value;
         cat = gameObject.GetComponent<Cat>();
         animator = GetComponent<Animator>();
-        animator.SetBool(cat.animationData.StoppingParameterHash, true);
+        animator.SetBool(cat.animationData.IdlingParameterHash, true);
 
     }
 
@@ -30,6 +30,6 @@ public class WaitAction : Action
     
     public override void OnEnd()
     {
-        animator.SetBool(cat.animationData.StoppingParameterHash, false);
+        animator.SetBool(cat.animationData.IdlingParameterHash, false);
     }
 }

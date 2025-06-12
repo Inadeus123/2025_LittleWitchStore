@@ -25,6 +25,7 @@ public class WanderAction : Action
         animator = GetComponent<Animator>();
         hasDestination = false;
 
+        //设置动画参数
         if (animator != null)
         {
             animator.SetBool(cat.animationData.WalkingParameterHash, true);

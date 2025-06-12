@@ -26,7 +26,7 @@ public class PlayerMovementState : IState
     public virtual void Enter()
     {
         playerWithOutCarryingItemMovementData.CacheRuntime();
-        Debug.Log("Current State: " + this.GetType().Name);
+       // Debug.Log("Current State: " + this.GetType().Name);
     }
 
     public virtual void Exit()

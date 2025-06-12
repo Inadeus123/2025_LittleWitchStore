@@ -731,6 +731,37 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1404038461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1404038462}
+  m_Layer: 0
+  m_Name: HandPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1404038462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404038461}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0042178193, y: -0.026586479, z: -0.7089077, w: -0.7047873}
+  m_LocalPosition: {x: 0.00004190592, y: 0.0014411706, z: -0.000085958}
+  m_LocalScale: {x: 0.013376739, y: 0.013376744, z: 0.013376744}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6888806816054260898}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &272891395234063260
 Transform:
   m_ObjectHideFlags: 0
@@ -1084,8 +1115,10 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652620554640}
   - component: {fileID: 5866666020824603626}
+  - component: {fileID: 5866666020824603629}
   - component: {fileID: 5866666020824603627}
   - component: {fileID: 5866666020824603628}
+  - component: {fileID: 5866666020824603630}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -3129,7 +3162,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 1294828cdf5b8c943bb9201b401e217c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -3144,7 +3177,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148094950186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -3166,7 +3199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148094950186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
   m_Name: 
@@ -3201,6 +3234,39 @@ MonoBehaviour:
       Version: 1.7.12
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
+--- !u!114 &5866666020824603629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148094950186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debe8bbd778125442900b67b6bc5e148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationData:
+    idlingParameterName: isIdling
+    walkingParameterName: isWalking
+    stoppingParameterName: isStopping
+    hitParameterName: isHit
+    stunnedParameterName: isStunned
+    withoutCarryingItemParameterName: bWithoutCarryingItem
+    withCarryingItemParameterName: bCarryingItem
+--- !u!114 &5866666020824603630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148094950186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95a440f2db30074684373fa41c52147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandTarget: {fileID: 1404038462}
 --- !u!95 &5866666021838832048
 Animator:
   serializedVersion: 5
@@ -3706,6 +3772,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1404038462}
   - {fileID: 4576320367621463009}
   m_Father: {fileID: 6124865130859734959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
