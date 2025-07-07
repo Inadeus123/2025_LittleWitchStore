@@ -19,6 +19,9 @@ MonoBehaviour:
   - Jet Pack
   - Dash
   - Crouch
+  - Attack
+  - OpenWheel
+  - FamiliarAct
   floatActions:
   - Pitch
   - Roll

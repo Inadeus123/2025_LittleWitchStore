@@ -13,10 +13,18 @@ MonoBehaviour:
   m_Name: MyCharacterActions
   m_EditorClassIdentifier: 
   boolActions:
+  - Jump
+  - Run
+  - Interact
+  - Jet Pack
+  - Dash
+  - Crouch
   - Attack
   - OpenWheel
-  - ConfirmCommand
-  - 'FamiliarAction '
-  floatActions: []
+  - FamiliarAct
+  floatActions:
+  - Pitch
+  - Roll
   vector2Actions:
-  - Look
+  - Movement
+  - Camera

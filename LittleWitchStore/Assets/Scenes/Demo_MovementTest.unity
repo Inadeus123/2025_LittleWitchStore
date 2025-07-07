@@ -585,6 +585,12 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
@@ -600,14 +606,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 966790962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 084d946b7d1f1274586e53f2a433a1ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 738d590220381584d98873f0a0282983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputActionsAsset: {fileID: -944628639613478452, guid: b3bc171e1bcd3e841b2b324b7a4a4648, type: 3}
   filterByActionMap: 1
   gameplayActionMap: Gameplay
   filterByControlScheme: 0
-  controlSchemeName: Keyboard&Mouse
+  controlSchemeName: Keyboard Mouse
 --- !u!1 &998533664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1090,12 @@ MonoBehaviour:
     dash:
       value: 0
     crouch:
+      value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
       value: 0
     pitch:
       value: 0

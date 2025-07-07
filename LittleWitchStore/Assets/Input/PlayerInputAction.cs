@@ -37,10 +37,19 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""Pitch"",
                     ""type"": ""Value"",
                     ""id"": ""eeb0e375-7352-44da-a436-53ef38ba0f9e"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Roll"",
+                    ""type"": ""Value"",
+                    ""id"": ""b3e01f24-d9d8-4a6e-88c5-f3b50926ba22"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -91,13 +100,22 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""FamiliarAction "",
+                    ""name"": ""FamiliarAct"",
                     ""type"": ""Button"",
                     ""id"": ""5cfabab4-3a12-41a8-a6d1-127e6bbd6a07"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""fee597c2-6656-4297-8cbe-7b5d69e582e0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -115,11 +133,11 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4c7455f1-522c-47d1-afe6-40457c936c2f"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""path"": ""<Gamepad>/rightStick/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Look"",
+                    ""action"": ""Pitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -185,7 +203,29 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FamiliarAction "",
+                    ""action"": ""FamiliarAct"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aecf2783-07a8-43a2-817f-d44a09b04f76"",
+                    ""path"": ""<Gamepad>/rightStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25c3194a-a603-4811-9253-82756a9dd312"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -197,13 +237,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
-        m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
+        m_Gameplay_Pitch = m_Gameplay.FindAction("Pitch", throwIfNotFound: true);
+        m_Gameplay_Roll = m_Gameplay.FindAction("Roll", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
         m_Gameplay_OpenWheel = m_Gameplay.FindAction("OpenWheel", throwIfNotFound: true);
         m_Gameplay_ConfirmCommand = m_Gameplay.FindAction("ConfirmCommand", throwIfNotFound: true);
-        m_Gameplay_FamiliarAction = m_Gameplay.FindAction("FamiliarAction ", throwIfNotFound: true);
+        m_Gameplay_FamiliarAct = m_Gameplay.FindAction("FamiliarAct", throwIfNotFound: true);
+        m_Gameplay_Camera = m_Gameplay.FindAction("Camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,25 +308,29 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Movement;
-    private readonly InputAction m_Gameplay_Look;
+    private readonly InputAction m_Gameplay_Pitch;
+    private readonly InputAction m_Gameplay_Roll;
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Attack;
     private readonly InputAction m_Gameplay_Dash;
     private readonly InputAction m_Gameplay_OpenWheel;
     private readonly InputAction m_Gameplay_ConfirmCommand;
-    private readonly InputAction m_Gameplay_FamiliarAction;
+    private readonly InputAction m_Gameplay_FamiliarAct;
+    private readonly InputAction m_Gameplay_Camera;
     public struct GameplayActions
     {
         private @PlayerInputAction m_Wrapper;
         public GameplayActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
-        public InputAction @Look => m_Wrapper.m_Gameplay_Look;
+        public InputAction @Pitch => m_Wrapper.m_Gameplay_Pitch;
+        public InputAction @Roll => m_Wrapper.m_Gameplay_Roll;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
         public InputAction @OpenWheel => m_Wrapper.m_Gameplay_OpenWheel;
         public InputAction @ConfirmCommand => m_Wrapper.m_Gameplay_ConfirmCommand;
-        public InputAction @FamiliarAction => m_Wrapper.m_Gameplay_FamiliarAction;
+        public InputAction @FamiliarAct => m_Wrapper.m_Gameplay_FamiliarAct;
+        public InputAction @Camera => m_Wrapper.m_Gameplay_Camera;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -297,9 +343,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
+            @Pitch.started += instance.OnPitch;
+            @Pitch.performed += instance.OnPitch;
+            @Pitch.canceled += instance.OnPitch;
+            @Roll.started += instance.OnRoll;
+            @Roll.performed += instance.OnRoll;
+            @Roll.canceled += instance.OnRoll;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -315,9 +364,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @ConfirmCommand.started += instance.OnConfirmCommand;
             @ConfirmCommand.performed += instance.OnConfirmCommand;
             @ConfirmCommand.canceled += instance.OnConfirmCommand;
-            @FamiliarAction.started += instance.OnFamiliarAction;
-            @FamiliarAction.performed += instance.OnFamiliarAction;
-            @FamiliarAction.canceled += instance.OnFamiliarAction;
+            @FamiliarAct.started += instance.OnFamiliarAct;
+            @FamiliarAct.performed += instance.OnFamiliarAct;
+            @FamiliarAct.canceled += instance.OnFamiliarAct;
+            @Camera.started += instance.OnCamera;
+            @Camera.performed += instance.OnCamera;
+            @Camera.canceled += instance.OnCamera;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -325,9 +377,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
+            @Pitch.started -= instance.OnPitch;
+            @Pitch.performed -= instance.OnPitch;
+            @Pitch.canceled -= instance.OnPitch;
+            @Roll.started -= instance.OnRoll;
+            @Roll.performed -= instance.OnRoll;
+            @Roll.canceled -= instance.OnRoll;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -343,9 +398,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @ConfirmCommand.started -= instance.OnConfirmCommand;
             @ConfirmCommand.performed -= instance.OnConfirmCommand;
             @ConfirmCommand.canceled -= instance.OnConfirmCommand;
-            @FamiliarAction.started -= instance.OnFamiliarAction;
-            @FamiliarAction.performed -= instance.OnFamiliarAction;
-            @FamiliarAction.canceled -= instance.OnFamiliarAction;
+            @FamiliarAct.started -= instance.OnFamiliarAct;
+            @FamiliarAct.performed -= instance.OnFamiliarAct;
+            @FamiliarAct.canceled -= instance.OnFamiliarAct;
+            @Camera.started -= instance.OnCamera;
+            @Camera.performed -= instance.OnCamera;
+            @Camera.canceled -= instance.OnCamera;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -366,12 +424,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
+        void OnPitch(InputAction.CallbackContext context);
+        void OnRoll(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnOpenWheel(InputAction.CallbackContext context);
         void OnConfirmCommand(InputAction.CallbackContext context);
-        void OnFamiliarAction(InputAction.CallbackContext context);
+        void OnFamiliarAct(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
     }
 }

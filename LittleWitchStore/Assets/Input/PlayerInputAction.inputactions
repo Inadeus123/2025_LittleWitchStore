@@ -15,10 +15,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
+                    "name": "Pitch",
                     "type": "Value",
                     "id": "eeb0e375-7352-44da-a436-53ef38ba0f9e",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Roll",
+                    "type": "Value",
+                    "id": "b3e01f24-d9d8-4a6e-88c5-f3b50926ba22",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -69,13 +78,22 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "FamiliarAction ",
+                    "name": "FamiliarAct",
                     "type": "Button",
                     "id": "5cfabab4-3a12-41a8-a6d1-127e6bbd6a07",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Camera",
+                    "type": "Value",
+                    "id": "fee597c2-6656-4297-8cbe-7b5d69e582e0",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -93,11 +111,11 @@
                 {
                     "name": "",
                     "id": "4c7455f1-522c-47d1-afe6-40457c936c2f",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<Gamepad>/rightStick/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "Pitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -163,7 +181,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FamiliarAction ",
+                    "action": "FamiliarAct",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aecf2783-07a8-43a2-817f-d44a09b04f76",
+                    "path": "<Gamepad>/rightStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "25c3194a-a603-4811-9253-82756a9dd312",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
