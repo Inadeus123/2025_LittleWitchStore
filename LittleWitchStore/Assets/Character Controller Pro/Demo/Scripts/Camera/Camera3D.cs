@@ -224,8 +224,6 @@ namespace Lightbug.CharacterControllerPro.Demo
             }
 
             Vector2 cameraAxes = inputHandlerSettings.InputHandler.GetVector2(axes);
-            Debug.Log(cameraAxes.x);
-            Debug.Log(cameraAxes.y);
             if (updatePitch)
                 deltaPitch = -cameraAxes.y;
 

@@ -199,8 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputHandlerSettings:
-    humanInputType: 0
-    inputHandler: {fileID: 0}
+    humanInputType: 2
+    inputHandler: {fileID: 966790965}
   axes: Camera
   zoomAxis: Camera Zoom
   targetTransform: {fileID: 6387504779956870449}
@@ -210,10 +210,10 @@ MonoBehaviour:
   hideBody: 1
   bodyObject: {fileID: 24870901004248073}
   updateYaw: 1
-  yawSpeed: 180
+  yawSpeed: 50
   updatePitch: 1
   initialPitch: 25
-  pitchSpeed: 180
+  pitchSpeed: 50
   maxPitchAngle: 80
   minPitchAngle: 10
   updateRoll: 0
@@ -272,7 +272,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 500
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 27.15
   m_Depth: -1
@@ -596,6 +596,8 @@ MonoBehaviour:
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
 --- !u!114 &966790965
 MonoBehaviour:
@@ -1103,6 +1105,8 @@ MonoBehaviour:
       value: 0
     movement:
       value: {x: 0, y: 0}
+    camera:
+      value: {x: 0, y: 0}
 --- !u!1 &1710542111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,11 +1460,11 @@ MonoBehaviour:
   overrideAnimatorController: 1
   runtimeAnimatorController: {fileID: 0}
   planarMovementParameters:
-    baseSpeedLimit: 6
-    canRun: 1
+    baseSpeedLimit: 12
+    canRun: 0
     runInputMode: 1
     boostSpeedLimit: 10
-    stableGroundedAcceleration: 50
+    stableGroundedAcceleration: 61
     stableGroundedDeceleration: 40
     stableGroundedAngleAccelerationBoost:
       serializedVersion: 2
@@ -1512,7 +1516,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    notGroundedAcceleration: 20
+    notGroundedAcceleration: 45
     notGroundedDeceleration: 5
     notGroundedAngleAccelerationBoost:
       serializedVersion: 2
@@ -1542,10 +1546,10 @@ MonoBehaviour:
     useGravity: 1
     canJump: 1
     autoCalculate: 1
-    jumpApexHeight: 2.25
+    jumpApexHeight: 5
     jumpApexDuration: 0.5
-    jumpSpeed: 9
-    gravity: 18
+    jumpSpeed: 20
+    gravity: 40
     cancelJumpOnRelease: 1
     cancelJumpMultiplier: 0.5
     cancelJumpMinTime: 0.1
