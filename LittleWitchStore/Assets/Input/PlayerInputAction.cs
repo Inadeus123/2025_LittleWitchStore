@@ -24,7 +24,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputAction"",
     ""maps"": [
         {
-            ""name"": ""PlayerNormalInput"",
+            ""name"": ""Gameplay"",
             ""id"": ""abf6e4ec-6c36-4be4-b217-fbe908bd3799"",
             ""actions"": [
                 {
@@ -35,6 +35,69 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""eeb0e375-7352-44da-a436-53ef38ba0f9e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""74555dfe-2032-4830-9491-bd2051deae6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""10e61931-f01a-43b2-8bac-1f5c1f541e15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1060ba6-0de8-4a83-ac36-07d4e6411901"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenWheel"",
+                    ""type"": ""Button"",
+                    ""id"": ""12e376e6-ca22-4d1a-b0e4-58543b17af73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ConfirmCommand"",
+                    ""type"": ""Button"",
+                    ""id"": ""e0fc38f7-0155-4ab7-a1f2-5297043d2aa0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FamiliarAction "",
+                    ""type"": ""Button"",
+                    ""id"": ""5cfabab4-3a12-41a8-a6d1-127e6bbd6a07"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,15 +111,99 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c7455f1-522c-47d1-afe6-40457c936c2f"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20858b62-e170-4327-8d8a-06d88b300d46"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f599c754-0bae-4d9e-a044-3f41db6bd998"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cf623cb-8e8c-49b3-bfd8-8dd66567aff4"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23338aaf-716a-49a4-9e55-13f848c7d4b3"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55d6a753-6597-448d-abe5-db1469bd91bc"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ConfirmCommand"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94a10fcb-de00-4a68-8bb8-b932a8483936"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FamiliarAction "",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // PlayerNormalInput
-        m_PlayerNormalInput = asset.FindActionMap("PlayerNormalInput", throwIfNotFound: true);
-        m_PlayerNormalInput_Movement = m_PlayerNormalInput.FindAction("Movement", throwIfNotFound: true);
+        // Gameplay
+        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
+        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
+        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
+        m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
+        m_Gameplay_OpenWheel = m_Gameplay.FindAction("OpenWheel", throwIfNotFound: true);
+        m_Gameplay_ConfirmCommand = m_Gameplay.FindAction("ConfirmCommand", throwIfNotFound: true);
+        m_Gameplay_FamiliarAction = m_Gameplay.FindAction("FamiliarAction ", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -115,53 +262,116 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // PlayerNormalInput
-    private readonly InputActionMap m_PlayerNormalInput;
-    private List<IPlayerNormalInputActions> m_PlayerNormalInputActionsCallbackInterfaces = new List<IPlayerNormalInputActions>();
-    private readonly InputAction m_PlayerNormalInput_Movement;
-    public struct PlayerNormalInputActions
+    // Gameplay
+    private readonly InputActionMap m_Gameplay;
+    private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
+    private readonly InputAction m_Gameplay_Movement;
+    private readonly InputAction m_Gameplay_Look;
+    private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_Attack;
+    private readonly InputAction m_Gameplay_Dash;
+    private readonly InputAction m_Gameplay_OpenWheel;
+    private readonly InputAction m_Gameplay_ConfirmCommand;
+    private readonly InputAction m_Gameplay_FamiliarAction;
+    public struct GameplayActions
     {
         private @PlayerInputAction m_Wrapper;
-        public PlayerNormalInputActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_PlayerNormalInput_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerNormalInput; }
+        public GameplayActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+        public InputAction @Look => m_Wrapper.m_Gameplay_Look;
+        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
+        public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
+        public InputAction @OpenWheel => m_Wrapper.m_Gameplay_OpenWheel;
+        public InputAction @ConfirmCommand => m_Wrapper.m_Gameplay_ConfirmCommand;
+        public InputAction @FamiliarAction => m_Wrapper.m_Gameplay_FamiliarAction;
+        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerNormalInputActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerNormalInputActions instance)
+        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
+        public void AddCallbacks(IGameplayActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerNormalInputActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerNormalInputActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
+            @OpenWheel.started += instance.OnOpenWheel;
+            @OpenWheel.performed += instance.OnOpenWheel;
+            @OpenWheel.canceled += instance.OnOpenWheel;
+            @ConfirmCommand.started += instance.OnConfirmCommand;
+            @ConfirmCommand.performed += instance.OnConfirmCommand;
+            @ConfirmCommand.canceled += instance.OnConfirmCommand;
+            @FamiliarAction.started += instance.OnFamiliarAction;
+            @FamiliarAction.performed += instance.OnFamiliarAction;
+            @FamiliarAction.canceled += instance.OnFamiliarAction;
         }
 
-        private void UnregisterCallbacks(IPlayerNormalInputActions instance)
+        private void UnregisterCallbacks(IGameplayActions instance)
         {
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
+            @OpenWheel.started -= instance.OnOpenWheel;
+            @OpenWheel.performed -= instance.OnOpenWheel;
+            @OpenWheel.canceled -= instance.OnOpenWheel;
+            @ConfirmCommand.started -= instance.OnConfirmCommand;
+            @ConfirmCommand.performed -= instance.OnConfirmCommand;
+            @ConfirmCommand.canceled -= instance.OnConfirmCommand;
+            @FamiliarAction.started -= instance.OnFamiliarAction;
+            @FamiliarAction.performed -= instance.OnFamiliarAction;
+            @FamiliarAction.canceled -= instance.OnFamiliarAction;
         }
 
-        public void RemoveCallbacks(IPlayerNormalInputActions instance)
+        public void RemoveCallbacks(IGameplayActions instance)
         {
-            if (m_Wrapper.m_PlayerNormalInputActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_GameplayActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerNormalInputActions instance)
+        public void SetCallbacks(IGameplayActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerNormalInputActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_GameplayActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerNormalInputActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_GameplayActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerNormalInputActions @PlayerNormalInput => new PlayerNormalInputActions(this);
-    public interface IPlayerNormalInputActions
+    public GameplayActions @Gameplay => new GameplayActions(this);
+    public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
+        void OnOpenWheel(InputAction.CallbackContext context);
+        void OnConfirmCommand(InputAction.CallbackContext context);
+        void OnFamiliarAction(InputAction.CallbackContext context);
     }
 }
