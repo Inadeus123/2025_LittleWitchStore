@@ -1772,11 +1772,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
 --- !u!1 &220133569
 GameObject:
@@ -2653,11 +2661,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
   actionSequence:
   - sequenceType: 1
@@ -2675,12 +2691,20 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
         value: {x: 0, y: 1}
+      camera:
+        value: {x: 0, y: 0}
   - sequenceType: 1
     duration: 1
     action:
@@ -2696,12 +2720,20 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
         value: {x: 0, y: -1}
+      camera:
+        value: {x: 0, y: 0}
 --- !u!114 &294517098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,11 +2765,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
 --- !u!1 &298742951
 GameObject:
@@ -4231,11 +4271,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
   minRandomMagnitude: 3
   maxRandomMagnitude: 5
@@ -4273,11 +4321,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
 --- !u!1 &570982323
 GameObject:
@@ -5244,11 +5300,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
   followTarget: {fileID: 8805377712143352378}
   reachDistance: 3
@@ -5284,11 +5348,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
 --- !u!1 &823095686
 GameObject:
@@ -6457,11 +6529,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
   actionSequence:
   - sequenceType: 0
@@ -6479,12 +6559,20 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
         value: {x: 0, y: 1}
+      camera:
+        value: {x: 0, y: 0}
   - sequenceType: 0
     duration: 1
     action:
@@ -6500,11 +6588,19 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
+        value: {x: 0, y: 0}
+      camera:
         value: {x: 0, y: 0}
   - sequenceType: 0
     duration: 0.05
@@ -6521,11 +6617,19 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
+        value: {x: 0, y: 0}
+      camera:
         value: {x: 0, y: 0}
   - sequenceType: 0
     duration: 2
@@ -6542,11 +6646,19 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
+        value: {x: 0, y: 0}
+      camera:
         value: {x: 0, y: 0}
   - sequenceType: 0
     duration: 1
@@ -6563,12 +6675,20 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
         value: {x: 0, y: -1}
+      camera:
+        value: {x: 0, y: 0}
   - sequenceType: 0
     duration: 1
     action:
@@ -6584,11 +6704,19 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
+        value: {x: 0, y: 0}
+      camera:
         value: {x: 0, y: 0}
   - sequenceType: 0
     duration: 0.1
@@ -6605,11 +6733,19 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
+        value: {x: 0, y: 0}
+      camera:
         value: {x: 0, y: 0}
   - sequenceType: 0
     duration: 1.5
@@ -6626,11 +6762,19 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
+        value: {x: 0, y: 0}
+      camera:
         value: {x: 0, y: 0}
 --- !u!114 &949479988
 MonoBehaviour:
@@ -6663,11 +6807,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
 --- !u!1001 &1012633874
 PrefabInstance:
@@ -7082,6 +7234,79 @@ Transform:
   - {fileID: 1163041436}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1045266911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_RootOrder
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2113506
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -62.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 83.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629614, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_Name
+      value: Rope (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629615, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: topLocalPosition.y
+      value: 2.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629615, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: bottomLocalPosition.y
+      value: -1.09
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
 --- !u!1 &1048479886
 GameObject:
   m_ObjectHideFlags: 0
@@ -7449,11 +7674,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
   actionSequence:
   - sequenceType: 1
@@ -7471,12 +7704,20 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
         value: {x: 0, y: 1}
+      camera:
+        value: {x: 0, y: 0}
   - sequenceType: 1
     duration: 1
     action:
@@ -7492,12 +7733,20 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
         value: {x: 0, y: -1}
+      camera:
+        value: {x: 0, y: 0}
 --- !u!114 &1099559099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7529,11 +7778,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
 --- !u!1001 &1109787688
 PrefabInstance:
@@ -8237,6 +8494,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialsProperties: {fileID: 11400000, guid: b515c95e65d4cde4fbffe49daa5e0fa0, type: 2}
+--- !u!1001 &1174182025
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_RootOrder
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2113506
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -62.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 83.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629603, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629614, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: m_Name
+      value: Rope (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629615, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: topLocalPosition.y
+      value: 2.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629615, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: bottomLocalPosition.y
+      value: -1.09
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
 --- !u!1 &1177110717
 GameObject:
   m_ObjectHideFlags: 0
@@ -12621,11 +12951,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
   actionSequence:
   - sequenceType: 1
@@ -12643,12 +12981,20 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
         value: {x: 0, y: 1}
+      camera:
+        value: {x: 0, y: 0}
   - sequenceType: 1
     duration: 1
     action:
@@ -12664,12 +13010,20 @@ MonoBehaviour:
         value: 0
       crouch:
         value: 0
+      attack:
+        value: 0
+      openwheel:
+        value: 0
+      familiaract:
+        value: 0
       pitch:
         value: 0
       roll:
         value: 0
       movement:
         value: {x: 0, y: -1}
+      camera:
+        value: {x: 0, y: 0}
 --- !u!114 &1958084519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12701,11 +13055,19 @@ MonoBehaviour:
       value: 0
     crouch:
       value: 0
+    attack:
+      value: 0
+    openwheel:
+      value: 0
+    familiaract:
+      value: 0
     pitch:
       value: 0
     roll:
       value: 0
     movement:
+      value: {x: 0, y: 0}
+    camera:
       value: {x: 0, y: 0}
 --- !u!1 &1982825848
 GameObject:
@@ -13708,6 +14070,10 @@ PrefabInstance:
     - target: {fileID: 1271006967181629614, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
       propertyPath: m_Name
       value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271006967181629615, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
+      propertyPath: showGizmos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1271006967181629615, guid: d0a42ec20715b814fad894592cf82d0a, type: 3}
       propertyPath: topLocalPosition.y
@@ -15187,6 +15553,8 @@ SceneRoots:
   - {fileID: 1271006967404846984}
   - {fileID: 1109787688}
   - {fileID: 1387877939}
+  - {fileID: 1045266911}
+  - {fileID: 1174182025}
   - {fileID: 676472055}
   - {fileID: 1485514279}
   - {fileID: 1629456692}

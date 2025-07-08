@@ -24,7 +24,7 @@ namespace Lightbug.CharacterControllerPro.Demo
         Vector3 bottomLocalPosition = Vector3.zero;
 
 
-
+        //获取世界坐标下的TopPosition
         public Vector3 TopPosition
         {
             get
@@ -33,6 +33,7 @@ namespace Lightbug.CharacterControllerPro.Demo
             }
         }
 
+        //获取世界坐标下的BottomPosition
         public Vector3 BottomPosition
         {
             get
