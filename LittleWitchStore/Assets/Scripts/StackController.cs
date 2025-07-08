@@ -26,16 +26,16 @@ public class StackController : MonoBehaviour
     void Update()
     {
         // —— 按键监听仅作示例，你可以换成 Input System Action —— //
-        if (Input.GetKeyDown(KeyCode.R))        // 第一次 RB => 进入栈
-            TryEnterStack();
-        else if (stacking && Input.GetKeyDown(KeyCode.R))  // 第二次 RB => 弹射
-            ShootAndExit();
-        
-        if (stacking)
+        if (Input.GetKeyDown(KeyCode.R)) // 第一次 RB => 进入栈
         {
-            UpdateTilt();
-            UpdateMiniTargets();
+            TryEnterStack();
         }
+        
+            if (stacking & Input.GetKeyDown(KeyCode.C)) // 第二次 RB => 弹射
+            {
+                ShootAndExit();
+            }
+            
     }
 
     #region 进入栈
@@ -45,6 +45,7 @@ public class StackController : MonoBehaviour
         if (minis.Count == 0) return;
 
         stacking = true;
+        Debug.Log("stacking: " + stacking);
         basePos = new Vector3(player.position.x, player.position.y - 0.1f, player.position.z);
 
         // 锁玩家移动（示例：把 Move Action 输入清零）
@@ -57,25 +58,18 @@ public class StackController : MonoBehaviour
         UpdateMiniTargets(); // 初始竖直
         pathProvider.IsActive = true; 
         
+        //切换到 StackClimbingState
         CharacterStateController controller = player.GetComponentInChildren<CharacterStateController>();
         controller.EnqueueTransition<StackClimbingState>();
     }
     #endregion
 
     #region 更新弯曲
-    void UpdateTilt()
-    {
-        // 读取摇杆（示例）——换成你实际 Input
-        tiltInput.x = Input.GetAxis("Horizontal");
-        tiltInput.y = Input.GetAxis("Vertical");
-        tiltInput = Vector2.ClampMagnitude(tiltInput, 1f);
-    }
-
     void UpdateMiniTargets()
     {
         // 把摇杆平面向量转换到世界 XZ
         Vector3 tiltDir = (Vector3.right * tiltInput.x + Vector3.forward * tiltInput.y);
-        float   tiltLen = maxTiltDistance * Mathf.Clamp01(tiltInput.magnitude);
+        //float   tiltLen = maxTiltDistance * Mathf.Clamp01(tiltInput.magnitude); //偏移长度
 
         int n = minis.Count;
         if (n == 0) return;
@@ -90,7 +84,7 @@ public class StackController : MonoBehaviour
             // ② 水平偏移：随高度递增（可调指数 >1 让弯曲更明显）
             float t = (float)i / (n - 1);               // 0-->1
             float curve = Mathf.Pow(t, 1.3f);           // 指数 1.3f ≈ 轻微 S 曲；改 2.0f 更弯
-            pos += tiltDir.normalized * tiltLen * curve;
+            pos += tiltDir.normalized;
 
             minis[i].targetWorldPos = pos;
 
@@ -114,6 +108,7 @@ public class StackController : MonoBehaviour
     #region 发射 & 退出
     void ShootAndExit()
     {
+        Debug.Log("Shoot!");
         stacking = false;
 
         // 计算冲量

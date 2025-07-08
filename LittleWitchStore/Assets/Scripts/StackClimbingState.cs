@@ -3,30 +3,49 @@ using System.Collections.Generic;
 using Lightbug.CharacterControllerPro.Demo;
 using UnityEngine;
 using Lightbug.CharacterControllerPro.Implementation;
+using UnityEngine.InputSystem;
 
-
+/// <summary>
+/// "叠高高" 爬绳状态（基于 CCP CharacterState）。
+/// 
+/// ● 左摇杆：Y = 沿弧长上/下爬；X = 绕绳旋转身体。
+/// ● 右摇杆：实时弯曲绳子；松手瞬间按弯曲反方向将角色弹射。
+/// </summary>
 public class StackClimbingState : CharacterState
 {
+    /* ────────── 可在 Inspector 中配置 ────────── */
+    [Header("References")]
+    [SerializeField] StackPathProvider pathProvider;   // 提供七段栈路径 & 弯曲接口
+    [SerializeField] Transform playerGraphics;         // 角色可视模型，用于同步朝向（可选）
+    [SerializeField] InputActionReference characterCameraAction; 
 
-   [Header("References")]
-    [SerializeField] StackPathProvider pathProvider;   // 拖 StackController
-    [SerializeField] Transform playerGraphics;         // 可选，让角色转向
-
-    [Header("Tuning")]
+    [Header("Climb Tuning")]
     [SerializeField] float climbSpeed = 2f;            // m/s 沿弧长
-    [SerializeField] float forwardOffset = -0.25f;     // 贴紧负值
+    [SerializeField] float rotationSpeed = 120f;       // °/s 左右旋转
+    [SerializeField] float forwardOffset = -0.25f;     // 贴绳距离（负值越贴）
+
+    [Header("Bend & Launch")]
+    [SerializeField] float bendSensitivity = 1f;       // 右摇杆 → 弯曲比例
+    [SerializeField] float launchSpeed = 12f;          // 弹射速度（m/s）
+    [SerializeField] float stickReleaseThreshold = 0.1f; // 判定“松手”阈值
+
+    [Header("Animator Params")]
     [SerializeField] string vertVelParam = "VerticalVelocity";
+    
 
-    float progress;        // 0~1
-    float curSpeed;        // 当前沿弧长速度
+    /* ────────── 运行时变量 ────────── */
+    float progress;          // 0~1 在 path 上的位置
+    float curSpeed;          // 当帧沿弧长速度（带符号）
+    float yawOffset;         // 角色绕绳轴累计旋转
 
-    /* ───────────────── Enter / Exit ───────────────── */
+    Vector2 prevBend;        // 右摇杆上一帧值
+    Vector2 curBend;         // 右摇杆当前帧值
+    Vector3 lastBendDir;     // 世界坐标最后一次有效弯曲方向
 
+    /* ────────── 状态切换 ────────── */
     public override bool CheckEnterTransition(CharacterState fromState)
     {
-        // 由 StackController 设置全局 bool
-        Debug.Log("PathProvider is active: " + pathProvider != null && pathProvider.IsActive);
-        return pathProvider != null && pathProvider.IsActive;
+        return pathProvider != null && pathProvider.IsActive; // StackController 负责设置 IsActive
     }
 
     public override void EnterBehaviour(float dt, CharacterState prev)
@@ -34,49 +53,79 @@ public class StackClimbingState : CharacterState
         CharacterActor.alwaysNotGrounded = true;
         CharacterActor.IsKinematic = false;
         CharacterActor.UseRootMotion = false;
-
-        // 从当前脚底投影到栈，得到初始 progress
-        pathProvider.Sample(0, out _, out _); // 确保弧长表已更新
+        //禁用相机旋转
+        Camera3D cam = Camera.main.GetComponent<Camera3D>();
+        cam.updatePitch = false;
+        cam.updateYaw = false;
+        characterCameraAction.action.canceled += OnStickRelease;
+        // 把脚底投影到栈曲线得到初始 progress
+        pathProvider.Sample(0, out _, out _); // 确保缓存表有效
         progress = FindClosestProgress(CharacterActor.Bottom);
 
         CharacterActor.Velocity = Vector3.zero;
+        yawOffset = 0f;
+        prevBend = curBend = Vector2.zero;
     }
+
+    void OnStickRelease(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("右摇杆已松手，值=" + ctx.ReadValue<Vector2>());
+        // 在这里做弹射之类的逻辑
+        Launch();
+        CharacterStateController.EnqueueTransition<NormalMovement>(); // 交给普通移动
+    }
+    
 
     public override void ExitBehaviour(float dt, CharacterState toState)
     {
         CharacterActor.alwaysNotGrounded = false;
-        // 若因 Jump 退出，由 NormalMovement 负责赋跳跃速度
     }
 
-    /* ───────────────── Update ───────────────── */
-
+    /* ────────── 主循环 ────────── */
     public override void UpdateBehaviour(float dt)
     {
-        // 1. 进度 += 输入
-        float inputY = CharacterActions.movement.value.y;      // -1~1
-        curSpeed = inputY * climbSpeed;
+        // ── 1. 左摇杆：沿弧长移动 ──
+        Vector2 moveInput = CharacterActions.movement.value; // (-1..1, -1..1)
+        curSpeed = moveInput.y * climbSpeed;
         progress = Mathf.Clamp01(progress + curSpeed * dt / pathProvider.TotalLength);
 
-        // 2. 采样位置 & 切位置
+        // ── 2. 从 path 采样位置 & 切主角位置 ──
         pathProvider.Sample(progress, out var pos, out var tangent);
 
-        Vector3 outward = Vector3.Cross(tangent, Vector3.up).normalized; // 栈右手方向
+        // 基础 outward (右手方向) = tangent × up 叉积方向
+        Vector3 outward = Vector3.Cross(tangent, Vector3.up).normalized;
+
+        // 把主角粘到绳子外侧
         Vector3 targetPos = pos + outward * forwardOffset;
-
         CharacterActor.Position = targetPos;
-        CharacterActor.Velocity = Vector3.zero;    // 完全粘附
+        CharacterActor.Velocity = Vector3.zero;
 
-        // 角色朝向 → 贴着栈正对
-        CharacterActor.SetYaw(outward);
+        // 更新朝向
+        //CharacterActor.SetYaw(outward);
+        //if (playerGraphics) playerGraphics.rotation = CharacterActor.transform.rotation;
 
-        if (playerGraphics)
-            playerGraphics.rotation = CharacterActor.transform.rotation;
-    }
+        // ── 4. 右摇杆：弯曲 ──
+        prevBend = curBend;
+        curBend = CharacterActions.camera.value * bendSensitivity; // 默认绑定右摇杆
+        Debug.Log("Current Bend: " + curBend);
+        pathProvider.SetBendInput(curBend);  // 由 provider 负责实际弯曲实现
 
-    public override void PostUpdateBehaviour(float dt)
-    {
-        if (CharacterActions.jump.Started || !pathProvider.IsActive)
-            CharacterStateController.EnqueueTransition<NormalMovement>();
+        // 保存最后一次非零弯曲方向（世界坐标）
+        //lastBendDir = (CharacterActor.transform.right * curBend.x + CharacterActor.transform.forward * curBend.y).normalized;
+        if (curBend.sqrMagnitude > 1e-4f)
+        lastBendDir = (Vector3.right * curBend.x + Vector3.forward * curBend.y).normalized;   // 纯世界轴
+        Debug.Log("lastBendDir: " + lastBendDir);
+        //Debug.Log("CharacterActorRight: " + lastBendDir);
+        // ── 5. 检测松手 → Launch ──
+        //bool released = prevBend.magnitude > stickReleaseThreshold && curBend.magnitude <= stickReleaseThreshold;
+        /*if (released)
+        {
+            Launch();
+            CharacterStateController.EnqueueTransition<NormalMovement>(); // 交给普通移动
+        }*/
+        
+        //检测右摇杆松开
+        
     }
 
     public override void PostCharacterSimulation(float dt)
@@ -85,11 +134,16 @@ public class StackClimbingState : CharacterState
             CharacterActor.Animator.SetFloat(vertVelParam, curSpeed);
     }
 
-    /* ───────────────── Helpers ───────────────── */
+    /* ────────── 私有方法 ────────── */
+    void Launch()
+    {
+        Vector3 launchDir = -lastBendDir.normalized;
+        //Vector3 testDirt = -CharacterActions.camera.value.normalized;
+        CharacterActor.Velocity = launchDir * launchSpeed;
+    }
 
     float FindClosestProgress(Vector3 worldPos)
     {
-        // 粗采样：线性搜索 100 步即可
         float best = 0;
         float bestDist = float.MaxValue;
         const int samples = 100;
@@ -102,5 +156,4 @@ public class StackClimbingState : CharacterState
         }
         return best;
     }
-    
 }
