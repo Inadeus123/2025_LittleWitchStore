@@ -6,16 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Allowed.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Allowed.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Jump pad A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Jump pad A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Jump pad B.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Jump pad B.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/NotAllowed.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/NotAllowed.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Staticgeometry_B.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Staticgeometry_B.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Teleporter.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Teleporter.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/TriggerC.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/TriggerC.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Wall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Materials/Wall.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scenes/3D Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scenes/3D Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scenes/Character Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scenes/Character Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,12 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/BTNodes/WaitAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Cat/Cat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Cat/CatAnimationData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/PlayerAnimationData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/IKTest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mapping/CaptureProjectionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FamiliarFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.11/Editor/ScriptableRendererDataEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
@@ -124,6 +109,8 @@
       <workItem from="1747191933228" duration="3565000" />
       <workItem from="1749190524217" duration="4796000" />
       <workItem from="1751780825786" duration="1100000" />
+      <workItem from="1751873950083" duration="12943000" />
+      <workItem from="1751945981269" duration="3618000" />
     </task>
     <servers />
   </component>
