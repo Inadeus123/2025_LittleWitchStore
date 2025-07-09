@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;   // 新输入系统
@@ -9,6 +10,13 @@ using UnityEngine.InputSystem;   // 新输入系统
 /// </summary>
 public class PoleController : MonoBehaviour
 {
+    public float deadZone = 0.15f;          // 静止阈值
+    public float releaseThreshold = 0.12f;  // 触发发射阈值
+    public Camera cam;                      // 拖主摄像机
+
+    bool stickActive;
+    Vector3 holdDirWS;
+
     [Header("杆段列表：底→顶")]
     public List<Transform> segments = new(); // 按 Inspector 手动塞 7 个段
 
@@ -32,7 +40,7 @@ public class PoleController : MonoBehaviour
     public bool IsPlayerAttached => _isAnyPlayerAttached;            // 给外部读
     public Vector3 LastBendDirWS { get; private set; } = Vector3.zero;
 
-    void Update()
+    /*void Update()
     {
         // ① 读取右摇杆（没有手柄则默认为零）
         _currentStick = Gamepad.current?.rightStick.ReadValue() ?? Vector2.zero;
@@ -45,6 +53,40 @@ public class PoleController : MonoBehaviour
         }
 
         _prevStick = _currentStick;
+    }*/
+
+    private void FixedUpdate()
+    {
+        Vector2 raw = Gamepad.current?.rightStick.ReadValue() ?? Vector2.zero;
+        float mag   = raw.magnitude;
+
+        // ───── 检测“开始拉” ─────
+        if (!stickActive && mag > deadZone)
+        {
+            stickActive = true;
+            holdDirWS   = StickToWorld(raw);   // 一次性记录
+        }
+
+        // ───── 检测“松手” ─────
+        if (stickActive && mag < releaseThreshold)
+        {
+            LastBendDirWS = holdDirWS;
+            stickActive   = false;
+            OnPoleReleased();                 // 触发事件
+        }
+
+        // 用于实时弯曲，只在 stickActive 时才弯
+        _currentStick = stickActive ? raw : Vector2.zero;
+        if (stickActive && _isAnyPlayerAttached)
+            BendPole();   // *可改到 FixedUpdate 内*
+    }
+    
+    Vector3 StickToWorld(Vector2 stick)
+    {
+        // 相机水平坐标系
+        Vector3 camF = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).normalized;
+        Vector3 camR = Vector3.ProjectOnPlane(cam.transform.right,   Vector3.up).normalized;
+        return (camR * stick.x + camF * stick.y).normalized;
     }
 
     /* ---------- 对外接口 ---------- */
@@ -68,7 +110,8 @@ public class PoleController : MonoBehaviour
     void BendPole()
     {
         // 2D 摇杆 → 水平世界向量
-        Vector3 horizontal = new Vector3(_currentStick.x, 0f, _currentStick.y);
+        //Vector3 horizontal = new Vector3(_currentStick.x, 0f, _currentStick.y);
+        Vector3 horizontal = StickToWorld(_currentStick); 
         float mag = Mathf.Clamp01(horizontal.magnitude);   // 0~1
         if (mag < 0.01f) return;                           // 微动忽略
 

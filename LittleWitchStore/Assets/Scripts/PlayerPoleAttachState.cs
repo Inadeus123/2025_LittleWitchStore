@@ -9,6 +9,7 @@ public class PlayerPoleAttachState : CharacterState
     [Header("引用")]
     public PoleController pole;                 // Inspector 直接拖
     public CharacterStateController controller;
+    public CharacterBrain brain;
     public Transform attachTransform;           // 在 Awake 里通过 pole.attachPoint 更新
     public CharacterActor actor;
     Camera playerCam;                           // 如有需要
@@ -16,15 +17,18 @@ public class PlayerPoleAttachState : CharacterState
     [Header("发射参数")]
     public float upwardBoost = 0.6f;            // 垂直分量
     bool _isAttached;
+    
 
     void Awake()
     {
         //actor = GetComponent<CharacterActor>();
         controller = actor.GetComponentInChildren<CharacterStateController>();
+        brain = actor.GetComponentInChildren<CharacterBrain>();
         if (controller == null)
         {
             Debug.Log("Controller not exist");
         }
+       
     }
 
     /* ---------- 状态逻辑 ---------- */
@@ -51,6 +55,7 @@ public class PlayerPoleAttachState : CharacterState
         //actor.PlanarMovement = false; // 禁用水平输入
         
         pole.OnShoot += OnPoleShoot; // 订阅杆子松手事件
+        
     }
 
     public override void ExitBehaviour(float dt,CharacterState toState)
@@ -67,16 +72,13 @@ public class PlayerPoleAttachState : CharacterState
 
     void OnPoleShoot()
     {
-        Debug.Log("OnPoleShoot called");
-        if (!_isAttached) return;
+        // 防呆：若方向丢失则不发射
+        if (pole.LastBendDirWS.sqrMagnitude < 0.001f)
+            return;
 
-        Vector3 dir = -pole.LastBendDirWS + Vector3.up * upwardBoost;
-        dir.Normalize();
-
-        actor.Velocity = dir * pole.launchForce; // CCP 直接设置速度
-        _isAttached = false;
-        // 让角色切回默认移动状态（可直接指派状态机）
-        
+        Vector3 dir = (-pole.LastBendDirWS + Vector3.up * upwardBoost).normalized;
+        //actor.SetVelocity(dir * pole.launchForce);
+        actor.Velocity = dir * pole.launchForce;
         controller.EnqueueTransition<NormalMovement>();
         
     }
