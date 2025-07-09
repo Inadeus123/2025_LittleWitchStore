@@ -114,25 +114,18 @@ public class StackClimbingState : CharacterState
         // ── 4. 右摇杆：弯曲 ──
         prevBend = curBend;
         curBend = CharacterActions.camera.value * bendSensitivity; // 默认绑定右摇杆
+        
+        
         Debug.Log("Current Bend: " + curBend);
         pathProvider.SetBendInput(curBend);  // 由 provider 负责实际弯曲实现
 
         // 保存最后一次非零弯曲方向（世界坐标）
         //lastBendDir = (CharacterActor.transform.right * curBend.x + CharacterActor.transform.forward * curBend.y).normalized;
         if (curBend.sqrMagnitude > 1e-4f)
-        //lastBendDir = (Vector3.right * curBend.x + Vector3.forward * curBend.y).normalized;   // 纯世界轴
-        lastBendDir = curBend.normalized;
+        lastBendDir = (Vector3.right * curBend.x + Vector3.forward * curBend.y).normalized;   // 纯世界轴
+        //lastBendDir = curBend.normalized;
         Debug.Log("lastBendDir: " + lastBendDir);
         //Debug.Log("CharacterActorRight: " + lastBendDir);
-        // ── 5. 检测松手 → Launch ──
-        //bool released = prevBend.magnitude > stickReleaseThreshold && curBend.magnitude <= stickReleaseThreshold;
-        /*if (released)
-        {
-            Launch();
-            CharacterStateController.EnqueueTransition<NormalMovement>(); // 交给普通移动
-        }*/
-        
-        //检测右摇杆松开
         
     }
 
