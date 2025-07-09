@@ -208,6 +208,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "ClimbStack",
+            "id": "dd18ce24-3855-4693-baf7-ab75a8fdeeb0",
+            "actions": [
+                {
+                    "name": "Launch",
+                    "type": "Value",
+                    "id": "8da50240-8aa7-41da-826c-4b02b3649558",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "930b765c-c09c-4ef3-a031-4d8409102079",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

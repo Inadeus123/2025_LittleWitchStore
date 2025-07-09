@@ -230,6 +230,34 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ClimbStack"",
+            ""id"": ""dd18ce24-3855-4693-baf7-ab75a8fdeeb0"",
+            ""actions"": [
+                {
+                    ""name"": ""Launch"",
+                    ""type"": ""Value"",
+                    ""id"": ""8da50240-8aa7-41da-826c-4b02b3649558"",
+                    ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""930b765c-c09c-4ef3-a031-4d8409102079"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Launch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -246,6 +274,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Gameplay_ConfirmCommand = m_Gameplay.FindAction("ConfirmCommand", throwIfNotFound: true);
         m_Gameplay_FamiliarAct = m_Gameplay.FindAction("FamiliarAct", throwIfNotFound: true);
         m_Gameplay_Camera = m_Gameplay.FindAction("Camera", throwIfNotFound: true);
+        // ClimbStack
+        m_ClimbStack = asset.FindActionMap("ClimbStack", throwIfNotFound: true);
+        m_ClimbStack_Launch = m_ClimbStack.FindAction("Launch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -421,6 +452,52 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // ClimbStack
+    private readonly InputActionMap m_ClimbStack;
+    private List<IClimbStackActions> m_ClimbStackActionsCallbackInterfaces = new List<IClimbStackActions>();
+    private readonly InputAction m_ClimbStack_Launch;
+    public struct ClimbStackActions
+    {
+        private @PlayerInputAction m_Wrapper;
+        public ClimbStackActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Launch => m_Wrapper.m_ClimbStack_Launch;
+        public InputActionMap Get() { return m_Wrapper.m_ClimbStack; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ClimbStackActions set) { return set.Get(); }
+        public void AddCallbacks(IClimbStackActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ClimbStackActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ClimbStackActionsCallbackInterfaces.Add(instance);
+            @Launch.started += instance.OnLaunch;
+            @Launch.performed += instance.OnLaunch;
+            @Launch.canceled += instance.OnLaunch;
+        }
+
+        private void UnregisterCallbacks(IClimbStackActions instance)
+        {
+            @Launch.started -= instance.OnLaunch;
+            @Launch.performed -= instance.OnLaunch;
+            @Launch.canceled -= instance.OnLaunch;
+        }
+
+        public void RemoveCallbacks(IClimbStackActions instance)
+        {
+            if (m_Wrapper.m_ClimbStackActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IClimbStackActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ClimbStackActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ClimbStackActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ClimbStackActions @ClimbStack => new ClimbStackActions(this);
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -433,5 +510,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnConfirmCommand(InputAction.CallbackContext context);
         void OnFamiliarAct(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+    }
+    public interface IClimbStackActions
+    {
+        void OnLaunch(InputAction.CallbackContext context);
     }
 }

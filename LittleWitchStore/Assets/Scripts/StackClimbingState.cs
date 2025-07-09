@@ -69,10 +69,17 @@ public class StackClimbingState : CharacterState
 
     void OnStickRelease(InputAction.CallbackContext ctx)
     {
-        Debug.Log("右摇杆已松手，值=" + ctx.ReadValue<Vector2>());
-        // 在这里做弹射之类的逻辑
-        Launch();
-        CharacterStateController.EnqueueTransition<NormalMovement>(); // 交给普通移动
+        Vector2 stick = ctx.ReadValue<Vector2>();
+
+        // 若松手瞬间几乎没有输入，就不发射
+        if (lastBendDir.sqrMagnitude < 1e-4f)
+            return;     
+
+        // 反方向 → 世界坐标
+        Vector3 dir = new Vector3(-lastBendDir.x, 0f, -lastBendDir.y).normalized;
+
+        Launch(dir);                                   // 固定力度
+        CharacterStateController.EnqueueTransition<NormalMovement>();
     }
     
 
@@ -113,7 +120,8 @@ public class StackClimbingState : CharacterState
         // 保存最后一次非零弯曲方向（世界坐标）
         //lastBendDir = (CharacterActor.transform.right * curBend.x + CharacterActor.transform.forward * curBend.y).normalized;
         if (curBend.sqrMagnitude > 1e-4f)
-        lastBendDir = (Vector3.right * curBend.x + Vector3.forward * curBend.y).normalized;   // 纯世界轴
+        //lastBendDir = (Vector3.right * curBend.x + Vector3.forward * curBend.y).normalized;   // 纯世界轴
+        lastBendDir = curBend.normalized;
         Debug.Log("lastBendDir: " + lastBendDir);
         //Debug.Log("CharacterActorRight: " + lastBendDir);
         // ── 5. 检测松手 → Launch ──
@@ -135,11 +143,10 @@ public class StackClimbingState : CharacterState
     }
 
     /* ────────── 私有方法 ────────── */
-    void Launch()
+    void Launch(Vector3 launchDir)
     {
-        Vector3 launchDir = -lastBendDir.normalized;
-        //Vector3 testDirt = -CharacterActions.camera.value.normalized;
         CharacterActor.Velocity = launchDir * launchSpeed;
+        pathProvider.IsActive   = false;               // 解除攀爬
     }
 
     float FindClosestProgress(Vector3 worldPos)
