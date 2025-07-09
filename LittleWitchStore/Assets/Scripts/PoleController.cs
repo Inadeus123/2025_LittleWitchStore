@@ -118,11 +118,10 @@ public class PoleController : MonoBehaviour
         }
     }
 
+    public event System.Action OnShoot;
     void OnPoleReleased()
     {
-        // 由 PlayerAttachState 去真正执行发射，
-        // 这里只做广播，可用事件或直接找挂载脚本
-        BroadcastMessage("OnPoleShoot", SendMessageOptions.DontRequireReceiver);
+       OnShoot?.Invoke();
     }
 
     /* ---------- 回弹协程 ---------- */

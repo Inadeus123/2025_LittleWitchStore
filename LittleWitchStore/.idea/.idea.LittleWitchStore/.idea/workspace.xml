@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleAttachTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleAttachTrigger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleBender.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleBender.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleShooter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleShooter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StackClimbingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StackClimbingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerPoleAttachState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerPoleAttachState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PoleController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +21,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/a9/38021c77/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FamiliarFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PoleController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PoleEnterTrigger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -134,7 +129,7 @@
       <workItem from="1751945981269" duration="33875000" />
       <workItem from="1752001857479" duration="368000" />
       <workItem from="1752036160704" duration="6278000" />
-      <workItem from="1752051974067" duration="746000" />
+      <workItem from="1752051974067" duration="1917000" />
     </task>
     <servers />
   </component>
@@ -150,38 +145,6 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/PlayerPoleAttachState.cs</url>
-          <line>29</line>
-          <properties documentPath="D:\Unity\Project\GitProject\2025_LittleWitchStore\LittleWitchStore\Assets\Scripts\PlayerPoleAttachState.cs" containingFunctionPresentation="方法 'UpdateBehaviour'">
-            <startOffsets>
-              <option value="846" />
-            </startOffsets>
-            <endOffsets>
-              <option value="881" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/PlayerPoleAttachState.cs</url>
-          <line>30</line>
-          <properties documentPath="D:\Unity\Project\GitProject\2025_LittleWitchStore\LittleWitchStore\Assets\Scripts\PlayerPoleAttachState.cs" containingFunctionPresentation="方法 'UpdateBehaviour'">
-            <startOffsets>
-              <option value="894" />
-            </startOffsets>
-            <endOffsets>
-              <option value="935" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

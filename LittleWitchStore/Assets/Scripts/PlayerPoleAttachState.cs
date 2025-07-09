@@ -8,6 +8,7 @@ public class PlayerPoleAttachState : CharacterState
 {
     [Header("引用")]
     public PoleController pole;                 // Inspector 直接拖
+    public CharacterStateController controller;
     public Transform attachTransform;           // 在 Awake 里通过 pole.attachPoint 更新
     public CharacterActor actor;
     Camera playerCam;                           // 如有需要
@@ -19,6 +20,11 @@ public class PlayerPoleAttachState : CharacterState
     void Awake()
     {
         //actor = GetComponent<CharacterActor>();
+        controller = actor.GetComponentInChildren<CharacterStateController>();
+        if (controller == null)
+        {
+            Debug.Log("Controller not exist");
+        }
     }
 
     /* ---------- 状态逻辑 ---------- */
@@ -41,9 +47,10 @@ public class PlayerPoleAttachState : CharacterState
         pole.RegisterAttach();
 
         actor.Velocity = Vector3.zero;
-        //actor.IsGrounded = true;      // 让 CCP 认为“站立”
         //actor.ForceGrounded();
         //actor.PlanarMovement = false; // 禁用水平输入
+        
+        pole.OnShoot += OnPoleShoot; // 订阅杆子松手事件
     }
 
     public override void ExitBehaviour(float dt,CharacterState toState)
@@ -51,6 +58,8 @@ public class PlayerPoleAttachState : CharacterState
         _isAttached = false;
         pole.RegisterDetach();
         //actor.PlanarMovement = true;
+        
+        pole.OnShoot -= OnPoleShoot; // 取消订阅杆子松手事件
     }
 
     
@@ -67,6 +76,8 @@ public class PlayerPoleAttachState : CharacterState
         actor.Velocity = dir * pole.launchForce; // CCP 直接设置速度
         _isAttached = false;
         // 让角色切回默认移动状态（可直接指派状态机）
-        CharacterStateController.EnqueueTransition<NormalMovement>();
+        
+        controller.EnqueueTransition<NormalMovement>();
+        
     }
 }
