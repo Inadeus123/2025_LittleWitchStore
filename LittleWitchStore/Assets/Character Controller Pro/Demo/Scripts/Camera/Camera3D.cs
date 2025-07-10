@@ -11,6 +11,29 @@ namespace Lightbug.CharacterControllerPro.Demo
     [DefaultExecutionOrder(ExecutionOrder.CharacterGraphicsOrder + 100)]  // <--- Do your job after everything else
     public class Camera3D : MonoBehaviour
     {
+        // ───── 3D 平台跳跃特化 ─────
+        [Header("Platformer Zoom Presets")]
+        public bool platformerZoomMode = true;          // 开关
+        [Tooltip("预设的缩放档位（从近到远）")]
+        public float[] zoomSteps = new float[] { 3f, 6f, 9f };
+        [Tooltip("摇杆从中档推到最上/下需要的最小幅度")]
+        public float stickThreshold = 0.4f;
+        [Tooltip("同方向连续换挡的冷却时间（秒）")]
+        public float zoomCooldown = 0.15f;
+        float zoomCooldownTimer = 0f;
+        int currentZoomIndex = 1;                       // 默认中档
+        
+        [Header("Platformer Pitch-Zoom Link")]
+        public bool linkPitchToZoom = true; // 开关
+
+        [Tooltip("最远 -> 最近 的俯仰角（度）。例：从 10° 抬到 35°")]
+        public float farPitch = 10f;        // 对应 maxZoom
+        public float nearPitch = 35f;       // 对应 minZoom
+
+        [Tooltip("自定义插值曲线（横轴 = 0~1 的缩放归一化，纵轴 = 0~1 的插值因子）")]
+        public AnimationCurve pitchCurve = AnimationCurve.EaseInOut(0,0,1,1); 
+
+        
         [Header("Inputs")]
 
         [SerializeField]
@@ -128,6 +151,7 @@ namespace Lightbug.CharacterControllerPro.Demo
         Vector3 characterPosition = default(Vector3);
         float lerpedHeight;
 
+
         public enum CameraMode
         {
             FirstPerson,
@@ -206,6 +230,24 @@ namespace Lightbug.CharacterControllerPro.Demo
 
 
             currentDistanceToTarget = distanceToTarget;
+            
+            // 若平台模式，把初始距离匹配到最近的档位
+            if (platformerZoomMode && zoomSteps.Length > 0)
+            {
+                float minDiff = float.MaxValue;
+                for (int i = 0; i < zoomSteps.Length; i++)
+                {
+                    float diff = Mathf.Abs(zoomSteps[i] - currentDistanceToTarget);
+                    if (diff < minDiff)
+                    {
+                        minDiff = diff;
+                        currentZoomIndex = i;
+                    }
+                }
+                currentDistanceToTarget = distanceToTarget = zoomSteps[currentZoomIndex];
+            }
+
+            
             smoothedDistanceToTarget = currentDistanceToTarget;
 
             viewReference.rotation = targetTransform.rotation;
@@ -224,14 +266,26 @@ namespace Lightbug.CharacterControllerPro.Demo
             }
 
             Vector2 cameraAxes = inputHandlerSettings.InputHandler.GetVector2(axes);
-            if (updatePitch)
+            
+            /*if (updatePitch)
                 deltaPitch = -cameraAxes.y;
 
+            if (updateZoom)
+                deltaZoom = -inputHandlerSettings.InputHandler.GetFloat(zoomAxis);*/
+            
+            // ─── Pitch 只在第一人称或非 Platformer 模式下允许 ───
+            if (updatePitch && !platformerZoomMode)
+                deltaPitch = -cameraAxes.y;
+            
             if (updateYaw)
                 deltaYaw = cameraAxes.x;
 
-            if (updateZoom)
+            // ─── Platformer Zoom：纵向摇杆换挡 ───
+            if (platformerZoomMode && cameraMode == CameraMode.ThirdPerson)
+                TryPlatformerZoom(cameraAxes.y);
+            else if (updateZoom)                          // 仍保留普通滚轮缩放
                 deltaZoom = -inputHandlerSettings.InputHandler.GetFloat(zoomAxis);
+
 
             // An input axis value (e.g. mouse x) usually gets accumulated over time. So, the higher the frame rate the smaller the value returned.
             // In order to prevent inconsistencies due to frame rate changes, the camera movement uses a fixed delta time, instead of the old regular
@@ -241,9 +295,22 @@ namespace Lightbug.CharacterControllerPro.Demo
             UpdateCamera(dt);
         }
 
+        private void TryPlatformerZoom(float stickY)
+        {
+            zoomCooldownTimer -= Time.unscaledDeltaTime;
+            if (Mathf.Abs(stickY) < stickThreshold || zoomCooldownTimer > 0f)
+                return;
 
+            int dir = stickY > 0f ? -1 : 1;              // 上推 => 拉近（index--）
+            int nextIndex = Mathf.Clamp(currentZoomIndex + dir, 0, zoomSteps.Length - 1);
 
-        
+            if (nextIndex != currentZoomIndex)
+            {
+                currentZoomIndex = nextIndex;
+                currentDistanceToTarget = zoomSteps[currentZoomIndex];
+                zoomCooldownTimer = zoomCooldown;
+            }
+        }
 
 
         void OnTeleport(Vector3 position, Quaternion rotation)
@@ -323,7 +390,7 @@ namespace Lightbug.CharacterControllerPro.Demo
 
             // Yaw rotation -----------------------------------------------------------------------------------------        
             viewReference.Rotate(lerpedCharacterUp, deltaYaw * yawSpeed * dt, Space.World);
-
+            
             // Pitch rotation -----------------------------------------------------------------------------------------            
 
             float angleToUp = Vector3.Angle(viewReference.forward, lerpedCharacterUp);
@@ -357,6 +424,25 @@ namespace Lightbug.CharacterControllerPro.Demo
                 currentDistanceToTarget = Mathf.Clamp(currentDistanceToTarget, minZoom, maxZoom);
 
                 smoothedDistanceToTarget = Mathf.Lerp(smoothedDistanceToTarget, currentDistanceToTarget, zoomInOutLerpSpeed * dt);
+              
+                if (platformerZoomMode && linkPitchToZoom)
+                {
+                    float zoomNorm = Mathf.InverseLerp(maxZoom , minZoom , smoothedDistanceToTarget);   // 0=最远,1=最近
+                    float t = pitchCurve.Evaluate(zoomNorm);
+                    float targetPitch = Mathf.Lerp(farPitch , nearPitch , t);
+
+                    // 用当前 right 轴旋转；保留 yaw/roll
+                    Quaternion pitchRot = Quaternion.AngleAxis(targetPitch , viewReference.right);
+
+                    // “把 forward 投影到水平面再抬头” 可避免累积误差
+                    Vector3 upDir  = lerpedCharacterUp;
+                    Vector3 fwdHor = Vector3.ProjectOnPlane(viewReference.forward , upDir).normalized;
+
+                    viewReference.rotation = Quaternion.LookRotation(
+                        pitchRot * fwdHor ,
+                        upDir );
+                }
+                
                 Vector3 displacement = -viewReference.forward * smoothedDistanceToTarget;
 
                 if (collisionDetection)
