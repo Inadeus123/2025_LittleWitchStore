@@ -128,7 +128,7 @@
       <workItem from="1752051974067" duration="6187000" />
       <workItem from="1752081509861" duration="907000" />
       <workItem from="1752118117025" duration="104000" />
-      <workItem from="1752118479787" duration="6787000" />
+      <workItem from="1752118479787" duration="19566000" />
     </task>
     <servers />
   </component>
@@ -144,6 +144,25 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/Camera/Camera3D.cs</url>
+          <line>279</line>
+          <properties documentPath="D:\Unity\Project\GitProject\2025_LittleWitchStore\LittleWitchStore\Assets\Character Controller Pro\Demo\Scripts\Camera\Camera3D.cs" containingFunctionPresentation="方法 'Update'">
+            <startOffsets>
+              <option value="8208" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8280" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

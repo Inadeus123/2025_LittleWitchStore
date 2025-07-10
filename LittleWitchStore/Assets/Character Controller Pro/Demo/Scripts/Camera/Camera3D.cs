@@ -22,6 +22,8 @@ namespace Lightbug.CharacterControllerPro.Demo
         public float zoomCooldown = 0.15f;
         float zoomCooldownTimer = 0f;
         int currentZoomIndex = 1;                       // 默认中档
+
+        private bool isMoving;
         
         [Header("Platformer Pitch-Zoom Link")]
         public bool linkPitchToZoom = true; // 开关
@@ -75,6 +77,13 @@ namespace Lightbug.CharacterControllerPro.Demo
         public bool updateYaw = true;
 
         public float yawSpeed = 180f;
+        
+        public float cameraAutoYawSpeed = 150f; // 移动相机自动转向的最大速度（度/秒）
+        
+        [Tooltip("移动相机自动转向的延迟时间（秒）")]
+        float autoYawDelay = 0f;      // 持续移动后等待的时间
+        [Tooltip("移动相机自动转向的计时器（秒）")]
+        public float autoYawDelayMax = 1f;
 
 
         [Header("Pitch")]
@@ -141,7 +150,9 @@ namespace Lightbug.CharacterControllerPro.Demo
         float deltaYaw = 0f;
         float deltaPitch = 0f;
         float deltaZoom = 0f;
-
+        
+        Vector2 movementAxes = Vector3.up; //用于相机方向自动跟随移动
+        
         Vector3 lerpedCharacterUp = Vector3.up;       
 
         Transform viewReference = null;
@@ -265,8 +276,10 @@ namespace Lightbug.CharacterControllerPro.Demo
                 return;
             }
 
-            Vector2 cameraAxes = inputHandlerSettings.InputHandler.GetVector2(axes);
-            
+            Vector2 cameraAxes = inputHandlerSettings.InputHandler.GetVector2(axes); //读取axes的输入
+             movementAxes = inputHandlerSettings.InputHandler.GetVector2("Movement");
+            //Debug.Log("Movement Axes X: " + movementAxes.x);
+            //Debug.Log("Movement Axes Y: " + movementAxes.y);
             /*if (updatePitch)
                 deltaPitch = -cameraAxes.y;
 
@@ -390,6 +403,23 @@ namespace Lightbug.CharacterControllerPro.Demo
 
             // Yaw rotation -----------------------------------------------------------------------------------------        
             viewReference.Rotate(lerpedCharacterUp, deltaYaw * yawSpeed * dt, Space.World);
+
+            //镜头的自动校正
+            if (Mathf.Abs(deltaYaw) > 0.01f)
+            {
+                autoYawDelay = autoYawDelayMax; // 有输入则重置计时器
+            }
+            else
+            {
+                autoYawDelay -= dt;
+            }
+
+            if (autoYawDelay <= 0f)
+            {
+                viewReference.Rotate(lerpedCharacterUp, movementAxes.x * cameraAutoYawSpeed * dt, Space.World);
+            }
+
+            
             
             // Pitch rotation -----------------------------------------------------------------------------------------            
 
