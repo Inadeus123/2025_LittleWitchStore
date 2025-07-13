@@ -2141,6 +2141,7 @@ GameObject:
   - component: {fileID: 2135460714}
   - component: {fileID: 2135460713}
   - component: {fileID: 2135460716}
+  - component: {fileID: 2135460717}
   m_Layer: 7
   m_Name: States
   m_TagString: Untagged
@@ -2176,9 +2177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overrideAnimatorController: 1
-  runtimeAnimatorController: {fileID: 0}
+  runtimeAnimatorController: {fileID: 9100000, guid: 77ac9b5bfe645f240a7760158fa65c85, type: 2}
   planarMovementParameters:
-    baseSpeedLimit: 12
+    baseSpeedLimit: 17
     canRun: 0
     runInputMode: 1
     boostSpeedLimit: 10
@@ -2340,6 +2341,50 @@ MonoBehaviour:
   attachTransform: {fileID: 1659717913}
   actor: {fileID: 6387504779956870451}
   upwardBoost: 0.6
+--- !u!114 &2135460717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135460711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de174a927f9d1a44b933feb53ca447ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideAnimatorController: 1
+  runtimeAnimatorController: {fileID: 9100000, guid: cd31bff8054cbc646b811445ab5f5aef, type: 2}
+  initialVelocity: 60
+  duration: 0.4
+  movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  availableNotGroundedDashes: 1
+  ignoreSpeedMultipliers: 0
+  forceNotGrounded: 1
+  cancelOnContact: 1
 --- !u!1 &24870901004248073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,7 +3620,7 @@ Animator:
   m_GameObject: {fileID: 24870901004248073}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3eecabbe01143694b8602161a902615f, type: 3}
-  m_Controller: {fileID: 9100000, guid: a08704af0e9c6934dabd103bb13e41e2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 77ac9b5bfe645f240a7760158fa65c85, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
