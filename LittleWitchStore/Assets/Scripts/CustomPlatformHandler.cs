@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class CustomPlatformHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Transform sphereCenter; //感知的球体范围
+    public float sphereRadius = 5f; //球体半径
 }
