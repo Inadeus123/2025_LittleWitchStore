@@ -459,6 +459,7 @@ MonoBehaviour:
   scaleDuration: 2
   holdDuration: 4
   easeType: 4
+  shaderInteractorPosition: {fileID: 87690032}
 --- !u!1 &95484466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &555410352
 Transform:
   m_ObjectHideFlags: 0
@@ -2074,7 +2075,7 @@ GameObject:
   - component: {fileID: 1954019454}
   - component: {fileID: 1954019453}
   - component: {fileID: 1954019452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2521,6 +2522,7 @@ GameObject:
   - component: {fileID: 2135460713}
   - component: {fileID: 2135460716}
   - component: {fileID: 2135460717}
+  - component: {fileID: 2135460718}
   m_Layer: 7
   m_Name: States
   m_TagString: Untagged
@@ -2764,6 +2766,147 @@ MonoBehaviour:
   ignoreSpeedMultipliers: 0
   forceNotGrounded: 1
   cancelOnContact: 1
+--- !u!114 &2135460718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135460711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff34d480174aacb48a268c655bda27eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideAnimatorController: 1
+  runtimeAnimatorController: {fileID: 0}
+  planarMovementParameters:
+    baseSpeedLimit: 25
+    canRun: 0
+    runInputMode: 1
+    boostSpeedLimit: 25
+    stableGroundedAcceleration: 70
+    stableGroundedDeceleration: 40
+    stableGroundedAngleAccelerationBoost:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 180
+        value: 2
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    unstableGroundedAcceleration: 10
+    unstableGroundedDeceleration: 2
+    unstableGroundedAngleAccelerationBoost:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 180
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    notGroundedAcceleration: 50
+    notGroundedDeceleration: 5
+    notGroundedAngleAccelerationBoost:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 180
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  verticalMovementParameters:
+    useGravity: 1
+    canJump: 1
+    autoCalculate: 1
+    jumpApexHeight: 10
+    jumpApexDuration: 0.5
+    jumpSpeed: 40
+    gravity: 80
+    cancelJumpOnRelease: 1
+    cancelJumpMultiplier: 0.5
+    cancelJumpMinTime: 0.1
+    cancelJumpMaxTime: 0.3
+    preGroundedJumpTime: 0.2
+    postGroundedJumpTime: 0.1
+    availableNotGroundedJumps: 0
+    canJumpOnUnstableGround: 0
+    canJumpDown: 0
+    filterByTag: 0
+    jumpDownTag: JumpDown
+    jumpDownDistance: 8
+    jumpDownVerticalVelocity: 0.6
+  crouchParameters:
+    enableCrouch: 0
+    notGroundedCrouch: 0
+    heightRatio: 0.75
+    speedMultiplier: 0.3
+    inputMode: 1
+    notGroundedReference: 0
+    sizeLerpSpeed: 8
+  lookingDirectionParameters:
+    changeLookingDirection: 1
+    speed: 10
+    lookingDirectionMode: 0
+    target: {fileID: 0}
+    stableGroundedLookingDirectionMode: 1
+    unstableGroundedLookingDirectionMode: 0
+    notGroundedLookingDirectionMode: 1
+  groundedParameter: Grounded
+  stableParameter: Stable
+  verticalSpeedParameter: VerticalSpeed
+  planarSpeedParameter: PlanarSpeed
+  horizontalAxisParameter: HorizontalAxis
+  verticalAxisParameter: VerticalAxis
+  heightParameter: Height
 --- !u!1 &24870901004248073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,6 +2919,7 @@ GameObject:
   - component: {fileID: 6061738148163801945}
   - component: {fileID: 6387504779956870450}
   - component: {fileID: 6387504779956870451}
+  - component: {fileID: 6387504779956870452}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -4143,6 +4287,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   weightGravity: 9.8
+--- !u!114 &6387504779956870452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24870901004248073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a735d7899aecc44960a4eb95b82414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6462792859251611464
 GameObject:
   m_ObjectHideFlags: 0

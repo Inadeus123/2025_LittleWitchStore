@@ -1,12 +1,10 @@
 using UnityEngine;
 using Lightbug.CharacterControllerPro.Core;
+using Lightbug.CharacterControllerPro.Demo;
 using Lightbug.Utilities;
 using Lightbug.CharacterControllerPro.Implementation;
 
-namespace Lightbug.CharacterControllerPro.Demo
-{
-    [AddComponentMenu("Character Controller Pro/Demo/Character/States/Normal Movement")]
-    public class NormalMovement : CharacterState
+    public class RunFastState : CharacterState
     {
         public CharacterStateController MyCharacterStateController { get; private set; }
         [Space(10)]
@@ -129,13 +127,6 @@ namespace Lightbug.CharacterControllerPro.Demo
             CharacterActor.OnTeleport -= OnTeleport;
         }
 
-        public override string GetInfo()
-        {
-            return "This state serves as a multi purpose movement based state. It is responsible for handling gravity and jump, walk and run, crouch, " +
-            "react to the different material properties, etc. Basically it covers all the common movements involved " +
-            "in a typical game, from a 3D platformer to a first person walking simulator.";
-        }
-
         void OnTeleport(Vector3 position, Quaternion rotation)
         {
             targetLookingDirection = CharacterActor.Forward;
@@ -154,29 +145,13 @@ namespace Lightbug.CharacterControllerPro.Demo
 
         public override void CheckExitTransition()
         {
-
-            if (CharacterActions.jetPack.value)
+            //Debug.Log("Enter CheckRunFastStateExitTransition");
+            // 按T键退出
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                CharacterStateController.EnqueueTransition<JetPack>();
-            }
-            else if (CharacterActions.dash.Started)
-            {
-                CharacterStateController.EnqueueTransition<Dash>();
-            }
-            else if (CharacterActor.Triggers.Count != 0)
-            {
-                CharacterStateController.EnqueueTransition<LadderClimbing>();
-                CharacterStateController.EnqueueTransition<RopeClimbing>();
-            }
-            else if (!CharacterActor.IsGrounded)
-            {
-                if (!CharacterActions.crouch.value)
-                    CharacterStateController.EnqueueTransition<WallSlide>();
-
-                CharacterStateController.EnqueueTransition<LedgeHanging>();
-            }else if (Input.GetKeyDown(KeyCode.Y))
-            {
-                //CharacterStateController.EnqueueTransition<RunFastState>();
+                Debug.Log("CheckRunFastStateExitTransition");
+                CharacterStateController.EnqueueTransition<NormalMovement>();
+                return;
             }
         }
 
@@ -817,4 +792,3 @@ namespace Lightbug.CharacterControllerPro.Demo
             ProcessPlanarMovement(dt);
         }
     }
-}

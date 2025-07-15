@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/States/NormalMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/States/NormalMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Implementation/Scripts/Character/States/CharacterState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Implementation/Scripts/Character/States/CharacterState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/CCPInputPart/InputSystemHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/CCPInputPart/InputSystemHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CustomPlatformHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CustomPlatformHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleEnterTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PoleEnterTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WorldSpaceDissolveMultiple/Shaders/WorldPositionEffectsSphere.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WorldSpaceDissolveMultiple/Shaders/WorldPositionEffectsSphere.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +142,10 @@
       <workItem from="1752118479787" duration="20163000" />
       <workItem from="1752306226399" duration="1256000" />
       <workItem from="1752383385336" duration="10144000" />
-      <workItem from="1752466367270" duration="4140000" />
+      <workItem from="1752466367270" duration="10194000" />
+      <workItem from="1752504601604" duration="2593000" />
+      <workItem from="1752548518203" duration="4803000" />
+      <workItem from="1752553433561" duration="6493000" />
     </task>
     <servers />
   </component>

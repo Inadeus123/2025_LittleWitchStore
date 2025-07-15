@@ -12,6 +12,7 @@ public class PoleEnterTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             CharacterStateController controller = other.GetComponentInChildren<CharacterStateController>();
+
             controller.EnqueueTransition<PlayerPoleAttachState>();
         }
     }

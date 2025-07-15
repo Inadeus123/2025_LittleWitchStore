@@ -59,6 +59,7 @@ namespace Lightbug.CharacterControllerPro.Implementation
         /// Gets the CharacterStateController component of the gameObject.
         /// </summary>
         public CharacterStateController CharacterStateController { get; private set; }
+        
 
         CharacterActions DefaultCharacterActions = CharacterActions.CreateDefaultActions();
 
@@ -66,6 +67,7 @@ namespace Lightbug.CharacterControllerPro.Implementation
         {
             CharacterActor = this.GetComponentInBranch<CharacterActor>();
             CharacterStateController = this.GetComponentInBranch<CharacterActor, CharacterStateController>();
+            //MyCharacterStateController = GetComponent<CharacterStateController>();
             CharacterBrain = this.GetComponentInBranch<CharacterActor, CharacterBrain>();
         }
 

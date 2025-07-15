@@ -111,4 +111,30 @@ public class InputSystemHandler : InputHandler
         return inputActionsDictionary[actionName].ReadValue<Vector2>(); 
     }
 
+    /// <summary>
+    /// 检测按钮是否在这一帧按下
+    /// </summary>
+    public bool GetButtonDown(string actionName)
+    {
+        if (!inputActionsDictionary.TryGetValue(actionName, out InputAction inputAction))
+        {
+            Debug.LogWarning($"Input action '{actionName}' not found.");
+            return false;
+        }
+
+        return inputAction.WasPressedThisFrame();
+    }
+
+    /// <summary>
+    /// 检测按钮是否在这一帧被释放
+    /// </summary>
+    public bool GetButtonUp(string actionName)
+    {
+        if (!inputActionsDictionary.TryGetValue(actionName, out InputAction inputAction))
+        {
+            Debug.LogWarning($"Input action '{actionName}' not found.");
+            return false;
+        }
+        return inputAction.WasReleasedThisFrame();
+    }
 }
