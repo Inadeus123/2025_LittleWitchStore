@@ -114,27 +114,58 @@ public class InputSystemHandler : InputHandler
     /// <summary>
     /// 检测按钮是否在这一帧按下
     /// </summary>
-    public bool GetButtonDown(string actionName)
+    /*public bool GetButtonDown(string actionName)
     {
         if (!inputActionsDictionary.TryGetValue(actionName, out InputAction inputAction))
         {
             Debug.LogWarning($"Input action '{actionName}' not found.");
             return false;
         }
-
+        Debug.Log("Does Button pressed?" +inputAction.WasPressedThisFrame() );
         return inputAction.WasPressedThisFrame();
-    }
+    }*/
 
     /// <summary>
     /// 检测按钮是否在这一帧被释放
     /// </summary>
-    public bool GetButtonUp(string actionName)
+    /*public bool GetButtonUp(string actionName)
     {
         if (!inputActionsDictionary.TryGetValue(actionName, out InputAction inputAction))
         {
             Debug.LogWarning($"Input action '{actionName}' not found.");
             return false;
         }
+        Debug.Log("Does Button released?" +inputAction.WasReleasedThisFrame() );
         return inputAction.WasReleasedThisFrame();
+    }*/
+    
+    
+    Dictionary<string, float> lastValue = new Dictionary<string, float>();
+
+    public bool GetButtonDown(string actionName)
+    {
+        if (!inputActionsDictionary.TryGetValue(actionName, out var action))
+            return false;
+
+        float curr = action.ReadValue<float>();
+        lastValue.TryGetValue(actionName, out float prev);
+
+        lastValue[actionName] = curr;                 // 记录供下一帧用
+        Debug.Log( curr >= 0.5f && prev < 0.5f );
+        return curr >= 0.5f && prev < 0.5f;           // 0→1
     }
+
+    public bool GetButtonUp(string actionName)
+    {
+        if (!inputActionsDictionary.TryGetValue(actionName, out var action))
+            return false;
+
+        float curr = action.ReadValue<float>();
+        lastValue.TryGetValue(actionName, out float prev);
+
+        lastValue[actionName] = curr;                 // 记录供下一帧用
+        Debug.Log( curr < 0.5f && prev >= 0.5f);
+        return curr < 0.5f && prev >= 0.5f;           // 1→0
+    }
+
 }

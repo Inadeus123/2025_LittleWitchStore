@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/States/NormalMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/States/NormalMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Implementation/Scripts/Character/States/CharacterState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Implementation/Scripts/Character/States/CharacterState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Input/CCPInputPart/InputSystemHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/CCPInputPart/InputSystemHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CustomPlatformHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CustomPlatformHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PoleEnterTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PoleEnterTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/WorldSpaceDissolveMultiple/Shaders/WorldPositionEffectsSphere.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WorldSpaceDissolveMultiple/Shaders/WorldPositionEffectsSphere.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/RunFastState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/RunFastState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +32,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PoleController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PoleEnterTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScaleAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Test.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.11/Editor/ScriptableRendererDataEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.11/Editor/Data/Graphs/SerializableTexture.cs" root0="SKIP_HIGHLIGHTING" />
@@ -145,7 +141,8 @@
       <workItem from="1752466367270" duration="10194000" />
       <workItem from="1752504601604" duration="2593000" />
       <workItem from="1752548518203" duration="4803000" />
-      <workItem from="1752553433561" duration="6493000" />
+      <workItem from="1752553433561" duration="19940000" />
+      <workItem from="1752594908622" duration="2349000" />
     </task>
     <servers />
   </component>

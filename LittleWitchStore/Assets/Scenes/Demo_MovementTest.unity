@@ -2907,6 +2907,75 @@ MonoBehaviour:
   horizontalAxisParameter: HorizontalAxis
   verticalAxisParameter: VerticalAxis
   heightParameter: Height
+  capsulePrefab: {fileID: 87690031}
+  inputHandler: {fileID: 966790965}
+  capsuleOffset: {x: 0, y: -0.5, z: 0}
+  normalMoveSpeed: 5
+  acceleration: 10
+  deceleration: 15
+  minChargeTime: 0.1
+  maxChargeTime: 2
+  minDashSpeed: 20
+  maxDashSpeed: 35
+  dashDuration: 0
+  dashSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dashControlAmount: 0.3
+  forceNotGrounded: 1
+  cancelDashOnWallHit: 1
+  slamSpeed: 30
+  slamRadius: 3
+  slamForce: 10
+  chargeEffectPrefab: {fileID: 0}
+  dashEffectPrefab: {fileID: 0}
+  slamEffectPrefab: {fileID: 0}
+  compressionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxCompressionScale: 0.8
 --- !u!1 &24870901004248073
 GameObject:
   m_ObjectHideFlags: 0
