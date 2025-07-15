@@ -975,6 +975,7 @@ using Lightbug.CharacterControllerPro.Implementation;
     
     protected virtual void UpdateDash(float dt)
     {
+        Debug.Log("Dashing!!!");
         dashTimer += dt;
         float dashProgress = dashTimer / dashDuration;
         

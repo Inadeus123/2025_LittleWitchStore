@@ -1295,7 +1295,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.634, z: 0}
-  m_LocalScale: {x: 169.66742, y: 1, z: 138.17188}
+  m_LocalScale: {x: 1279.2754, y: 1, z: 1065.4572}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2915,9 +2915,9 @@ MonoBehaviour:
   deceleration: 15
   minChargeTime: 0.1
   maxChargeTime: 2
-  minDashSpeed: 20
-  maxDashSpeed: 35
-  dashDuration: 0
+  minDashSpeed: 30
+  maxDashSpeed: 55
+  dashDuration: 3
   dashSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   dashControlAmount: 0.3
   forceNotGrounded: 1
   cancelDashOnWallHit: 1
-  slamSpeed: 30
+  slamSpeed: 60
   slamRadius: 3
   slamForce: 10
   chargeEffectPrefab: {fileID: 0}
