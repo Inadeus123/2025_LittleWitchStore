@@ -840,6 +840,8 @@ using Lightbug.CharacterControllerPro.Implementation;
         
         protected virtual void HandleInput(float dt)
         {
+            Debug.Log("GetBool FamiliarAct"+inputHandler.GetBool("FamiliarAct"));
+            Debug.Log("Is Charging"+isCharging);
             //Debug.Log("HandleInput");
             if (inputHandler == null) return;
         
@@ -849,12 +851,13 @@ using Lightbug.CharacterControllerPro.Implementation;
                 // RB键按下 - 开始蓄力
                 if (inputHandler.GetButtonDown("FamiliarAct"))
                 {
-                    Debug.Log("Get Button Down FamiliarAct");
+                   // Debug.Log("Get Button Down FamiliarAct");
                     StartCharging();
                 }
                 // RB键持续按住 - 继续蓄力
                 else if (inputHandler.GetBool("FamiliarAct") && isCharging)
                 {
+                   
                     UpdateCharging(dt);
                 }
                 // RB键释放 - 执行冲刺
@@ -893,6 +896,7 @@ using Lightbug.CharacterControllerPro.Implementation;
     
         protected virtual void UpdateCharging(float dt)
         {
+            Debug.Log("蓄力中");
             chargeTimer += dt;
             currentChargeLevel = Mathf.Clamp01(chargeTimer / maxChargeTime);
         
@@ -909,10 +913,10 @@ using Lightbug.CharacterControllerPro.Implementation;
             }
         
             // 达到最大蓄力时间自动释放
-            if (chargeTimer >= maxChargeTime)
+            /*if (chargeTimer >= maxChargeTime)
             {
                 ExecuteDash();
-            }
+            }*/
         }
         
         // ─────────────────────────────────────────────────────────────────────────────────────────────

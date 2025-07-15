@@ -151,8 +151,9 @@ public class InputSystemHandler : InputHandler
         lastValue.TryGetValue(actionName, out float prev);
 
         lastValue[actionName] = curr;                 // 记录供下一帧用
-        Debug.Log( curr >= 0.5f && prev < 0.5f );
-        return curr >= 0.5f && prev < 0.5f;           // 0→1
+        //Debug.Log( curr >= 0.5f && prev < 0.5f );
+        //return curr >= 0.5f && prev < 0.5f;           // 0→1
+        return curr > prev;
     }
 
     public bool GetButtonUp(string actionName)
@@ -164,8 +165,11 @@ public class InputSystemHandler : InputHandler
         lastValue.TryGetValue(actionName, out float prev);
 
         lastValue[actionName] = curr;                 // 记录供下一帧用
-        Debug.Log( curr < 0.5f && prev >= 0.5f);
-        return curr < 0.5f && prev >= 0.5f;           // 1→0
+        //Debug.Log( "Get Button up！" + (curr < 0.5f && prev >= 0.5f));
+        //Debug.Log( "Current：" + curr);
+        //Debug.Log( "Prev：" + prev);
+        //return curr < 0.5f && prev >= 0.5f;           // 1→0
+        return curr <= prev;
     }
-
+   
 }
