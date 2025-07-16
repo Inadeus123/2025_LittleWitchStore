@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="" />
+    <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scenes/3D Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scenes/3D Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/States/LedgeHanging.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/States/LedgeHanging.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,6 +143,7 @@
       <workItem from="1752548518203" duration="4803000" />
       <workItem from="1752553433561" duration="19940000" />
       <workItem from="1752594908622" duration="7131000" />
+      <workItem from="1752654590309" duration="5978000" />
     </task>
     <servers />
   </component>

@@ -267,8 +267,11 @@ namespace Lightbug.CharacterControllerPro.Demo
         bool IsValidLedge(Vector3 characterPosition)
         {
             if (!CharacterActor.WallCollision)
+            {
+                //Debug.Log("Cant detect wall");
                 return false;
-
+            }
+           
             DetectLedge(
                 characterPosition,
                 out leftHitInfo,
@@ -276,21 +279,34 @@ namespace Lightbug.CharacterControllerPro.Demo
             );
 
             if (!leftHitInfo.hit || !rightHitInfo.hit)
+            {
+                
                 return false;
+            }
                         
             if (filterByTag)
                 if (!leftHitInfo.transform.CompareTag(tagName) || !rightHitInfo.transform.CompareTag(tagName))
+                {
                     return false;
+                }
 
             Vector3 interpolatedNormal = Vector3.Normalize(leftHitInfo.normal + rightHitInfo.normal);
             float ledgeAngle = Vector3.Angle(CharacterActor.Up, interpolatedNormal);
             if (ledgeAngle > MaxLedgeVerticalAngle)
+            {
                 return false;
+            }
 
             return true;
         }
 
 
+        /// <summary>
+        /// 检测边缘
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="leftHitInfo"></param>
+        /// <param name="rightHitInfo"></param>
         void DetectLedge(Vector3 position, out HitInfo leftHitInfo, out HitInfo rightHitInfo)
         {
             HitInfoFilter ledgeHitInfoFilter = new HitInfoFilter(layerMask, !detectRigidbodies, true);
