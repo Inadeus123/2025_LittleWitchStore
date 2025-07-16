@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/RunFastState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/RunFastState.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,7 +137,7 @@
       <workItem from="1752504601604" duration="2593000" />
       <workItem from="1752548518203" duration="4803000" />
       <workItem from="1752553433561" duration="19940000" />
-      <workItem from="1752594908622" duration="6788000" />
+      <workItem from="1752594908622" duration="7131000" />
     </task>
     <servers />
   </component>
