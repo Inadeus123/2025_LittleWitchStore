@@ -1,10 +1,10 @@
 using UnityEngine;
 using Lightbug.CharacterControllerPro.Core;
+using Lightbug.CharacterControllerPro.Demo;
 using Lightbug.Utilities;
 using Lightbug.CharacterControllerPro.Implementation;
 
-namespace Lightbug.CharacterControllerPro.Demo
-{
+
     [AddComponentMenu("Character Controller Pro/Demo/Character/States/Normal Movement")]
     public class NormalMovement : CharacterState
     {
@@ -18,8 +18,7 @@ namespace Lightbug.CharacterControllerPro.Demo
         public CrouchParameters crouchParameters = new CrouchParameters();
 
         public LookingDirectionParameters lookingDirectionParameters = new LookingDirectionParameters();
-
-
+        
         [Header("Animation")]
 
         [SerializeField]
@@ -176,7 +175,7 @@ namespace Lightbug.CharacterControllerPro.Demo
                 CharacterStateController.EnqueueTransition<LedgeHanging>();
             }else if (Input.GetKeyDown(KeyCode.Y))
             {
-                //CharacterStateController.EnqueueTransition<RunFastState>();
+                //CharacterStateController.EnqueueTransition<Fami>();
             }
         }
 
@@ -820,4 +819,3 @@ namespace Lightbug.CharacterControllerPro.Demo
             ProcessPlanarMovement(dt);
         }
     }
-}

@@ -18,6 +18,7 @@ public struct CharacterActions
 	public BoolAction @attack;
 	public BoolAction @openwheel;
 	public BoolAction @familiaract;
+	public BoolAction @swing;
 
 
     // Float actions
@@ -51,6 +52,7 @@ public struct CharacterActions
 		@attack.Reset();
 		@openwheel.Reset();
 		@familiaract.Reset();
+		@swing.Reset();
 
 		@pitch.Reset();
 		@roll.Reset();
@@ -92,6 +94,9 @@ public struct CharacterActions
 		@familiaract = new BoolAction();
 		@familiaract.Initialize();
 
+		@swing = new BoolAction();
+		@swing.Initialize();
+
 
 		@pitch = new FloatAction();
 		@roll = new FloatAction();
@@ -118,6 +123,7 @@ public struct CharacterActions
 		@attack.value = inputHandler.GetBool( "Attack" );
 		@openwheel.value = inputHandler.GetBool( "OpenWheel" );
 		@familiaract.value = inputHandler.GetBool( "FamiliarAct" );
+		@swing.value = inputHandler.GetBool( "Swing" );
 
 		@pitch.value = inputHandler.GetFloat( "Pitch" );
 		@roll.value = inputHandler.GetFloat( "Roll" );
@@ -141,6 +147,7 @@ public struct CharacterActions
 		@attack.value = characterActions.attack.value;
 		@openwheel.value = characterActions.openwheel.value;
 		@familiaract.value = characterActions.familiaract.value;
+		@swing.value = characterActions.swing.value;
 
 		@pitch.value = characterActions.pitch.value;
 		@roll.value = characterActions.roll.value;
@@ -166,6 +173,7 @@ public struct CharacterActions
 		@attack.Update( dt );
 		@openwheel.Update( dt );
 		@familiaract.Update( dt );
+		@swing.Update( dt );
 
     }
 

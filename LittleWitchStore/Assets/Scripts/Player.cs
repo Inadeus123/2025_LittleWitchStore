@@ -25,5 +25,12 @@ public class Player : MonoBehaviour
         {
             controller.EnqueueTransition<RunFastState>();
         }
+        
+        
+        // 检查是否按下了使魔键（假设用F键）
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            controller.EnqueueTransition<FamiliarSwingState>();
+        }
     }
 }

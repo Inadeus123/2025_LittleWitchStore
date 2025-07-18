@@ -22,6 +22,7 @@ MonoBehaviour:
   - Attack
   - OpenWheel
   - FamiliarAct
+  - Swing
   floatActions:
   - Pitch
   - Roll

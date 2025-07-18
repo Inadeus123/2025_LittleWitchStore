@@ -116,6 +116,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Swing"",
+                    ""type"": ""Button"",
+                    ""id"": ""30de7a18-830f-4aa2-92e4-8d11036ec2b2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -228,6 +237,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""108e3dbe-135f-40b7-9270-47c456727c6e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Swing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -274,6 +294,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Gameplay_ConfirmCommand = m_Gameplay.FindAction("ConfirmCommand", throwIfNotFound: true);
         m_Gameplay_FamiliarAct = m_Gameplay.FindAction("FamiliarAct", throwIfNotFound: true);
         m_Gameplay_Camera = m_Gameplay.FindAction("Camera", throwIfNotFound: true);
+        m_Gameplay_Swing = m_Gameplay.FindAction("Swing", throwIfNotFound: true);
         // ClimbStack
         m_ClimbStack = asset.FindActionMap("ClimbStack", throwIfNotFound: true);
         m_ClimbStack_Launch = m_ClimbStack.FindAction("Launch", throwIfNotFound: true);
@@ -348,6 +369,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ConfirmCommand;
     private readonly InputAction m_Gameplay_FamiliarAct;
     private readonly InputAction m_Gameplay_Camera;
+    private readonly InputAction m_Gameplay_Swing;
     public struct GameplayActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -362,6 +384,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @ConfirmCommand => m_Wrapper.m_Gameplay_ConfirmCommand;
         public InputAction @FamiliarAct => m_Wrapper.m_Gameplay_FamiliarAct;
         public InputAction @Camera => m_Wrapper.m_Gameplay_Camera;
+        public InputAction @Swing => m_Wrapper.m_Gameplay_Swing;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,6 +424,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Camera.started += instance.OnCamera;
             @Camera.performed += instance.OnCamera;
             @Camera.canceled += instance.OnCamera;
+            @Swing.started += instance.OnSwing;
+            @Swing.performed += instance.OnSwing;
+            @Swing.canceled += instance.OnSwing;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -435,6 +461,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Camera.started -= instance.OnCamera;
             @Camera.performed -= instance.OnCamera;
             @Camera.canceled -= instance.OnCamera;
+            @Swing.started -= instance.OnSwing;
+            @Swing.performed -= instance.OnSwing;
+            @Swing.canceled -= instance.OnSwing;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -510,6 +539,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnConfirmCommand(InputAction.CallbackContext context);
         void OnFamiliarAct(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+        void OnSwing(InputAction.CallbackContext context);
     }
     public interface IClimbStackActions
     {
