@@ -5,7 +5,6 @@ using Lightbug.Utilities;
 using Lightbug.CharacterControllerPro.Implementation;
 
 
-    [AddComponentMenu("Character Controller Pro/Demo/Character/States/Normal Movement")]
     public class NormalMovement : CharacterState
     {
         public CharacterStateController MyCharacterStateController { get; private set; }
@@ -173,9 +172,6 @@ using Lightbug.CharacterControllerPro.Implementation;
                     CharacterStateController.EnqueueTransition<WallSlide>();
 
                 CharacterStateController.EnqueueTransition<LedgeHanging>();
-            }else if (Input.GetKeyDown(KeyCode.Y))
-            {
-                //CharacterStateController.EnqueueTransition<Fami>();
             }
         }
 

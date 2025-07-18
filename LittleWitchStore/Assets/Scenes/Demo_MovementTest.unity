@@ -16023,6 +16023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3539147496830940304, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
+      propertyPath: inputSystemHandler
+      value: 
+      objectReference: {fileID: 966790965}
     - target: {fileID: 4683276909199444026, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
       propertyPath: movementReferenceParameters.externalReference
       value: 
