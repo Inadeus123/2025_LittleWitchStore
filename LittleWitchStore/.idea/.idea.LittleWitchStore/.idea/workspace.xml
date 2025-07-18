@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInputAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInputAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInputAction.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInputAction.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/Swing/FamiliarSwingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/Swing/FamiliarSwingState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/Swing/SwingPhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/Swing/SwingPhysics.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +149,7 @@
       <workItem from="1752594908622" duration="7131000" />
       <workItem from="1752654590309" duration="8374000" />
       <workItem from="1752732448357" duration="1233000" />
-      <workItem from="1752809569734" duration="17105000" />
+      <workItem from="1752809569734" duration="19035000" />
     </task>
     <servers />
   </component>

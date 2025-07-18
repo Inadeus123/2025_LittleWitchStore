@@ -15842,8 +15842,14 @@ MonoBehaviour:
   overrideAnimatorController: 1
   runtimeAnimatorController: {fileID: 0}
   familiarPrefab: {fileID: 6629341592054300516, guid: 639bf8ee72d96e547943c384cb679cc4, type: 3}
-  anchorHeight: 5
+  anchorHeight: 6
   anchorForwardOffset: 2
+  ropeLength: 6
+  swingGravity: 35
+  airControl: 1
+  damping: 0.98
+  tensionMultiplier: 1.2
+  releaseVelocityBoost: 2
   recallSpeed: 30
   recallImpactForce: 15
   recallImpactRadius: 1
@@ -16057,12 +16063,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1889073837808572727, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6387504779956870452}
-    - targetCorrespondingSourceObject: {fileID: 1889073837808572727, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6387504779956870451}
     - targetCorrespondingSourceObject: {fileID: 5771430052278412215, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2135460717}
@@ -16144,41 +16144,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2328669756613172690, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
   m_PrefabInstance: {fileID: 5651986713875918115}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6387504779956870451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24870901004248073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab18bec1f8ace984daeb8cc5a697cf47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ropeLength: 5
-  gravity: 20
-  damping: 0.98
-  tensionMultiplier: 1.2
-  releaseVelocityBoost: 1.1
---- !u!114 &6387504779956870452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24870901004248073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9185057a300d7bf41bd35dfdcea6ac3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  familiarPrefab: {fileID: 0}
-  anchorHeight: 5
-  anchorForwardOffset: 2
-  recallSpeed: 30
-  recallImpactForce: 15
-  recallImpactRadius: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

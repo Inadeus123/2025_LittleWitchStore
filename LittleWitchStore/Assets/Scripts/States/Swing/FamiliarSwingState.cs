@@ -17,7 +17,12 @@ public class FamiliarSwingState : CharacterState
     
     [SerializeField] float ropeLength = 5f;      // 绳长
     [SerializeField] float swingGravity = 35f;   // 与 NormalMovement 的重力保持一致
-    [SerializeField] float airControl   = 3f;    // 空中 W/A/S/D 对摆荡速度的微调
+    [SerializeField] float airControl   = 3f;    // 空中对摆荡速度的微调程度
+    [SerializeField] float damping = 0.98f;   // 阻尼系数
+    [SerializeField] float tensionMultiplier = 1.2f;   // >1 会稍微向内“回弹”，<1 会软一点
+    
+    [Header("= 释放参数 =")]
+    [SerializeField] private float releaseVelocityBoost = 1.1f; // 释放时的速度增益
     
     [Header("= 召回设置 =")]
     [SerializeField] private float recallSpeed = 30f;         // 召回飞行速度
@@ -37,11 +42,6 @@ public class FamiliarSwingState : CharacterState
     [Header("= 状态设置 =")]
     [SerializeField] private float minSwingHeight = 2f;       // 最小摆荡高度
     [SerializeField] private bool allowGroundExit = true;     // 是否允许着地时退出
-    
-    /*// 组件引用
-    private FamiliarController familiarController;
-    private SwingPhysics swingPhysics;
-    //private CharacterActor characterActor;*/
     
     public InputSystemHandler inputHandler;
     
@@ -118,10 +118,6 @@ public class FamiliarSwingState : CharacterState
 
         CharacterActor.alwaysNotGrounded = true; // 不要被判定 grounded
         
-        
-        
-        
-        
     }
     
     /// <summary>
@@ -129,43 +125,12 @@ public class FamiliarSwingState : CharacterState
     /// </summary>
     public void StartSwing()
     {
-        anchorPoint = AnchorPosition;
-        position =transform.position;
-        //velocity = initialVelocity;
-        isSwinging = true;
-        //player = GetComponent<Transform>();
-
-        joint = playerTransform.gameObject.AddComponent<SpringJoint>();
-        joint.autoConfigureConnectedAnchor = false;
-        joint.connectedAnchor = anchorPoint;
-        float distanceFromPoint = Vector3.Distance(position, anchorPoint);
         
-        joint.maxDistance = distanceFromPoint * 0.8f;
-        joint.minDistance = distanceFromPoint * 0.25f;
-        joint.spring = 4.5f;
-        joint.damper = 7f;
-        joint.massScale = 4.5f;
-        
-        Debug.Log($"开始摆荡 - 锚点: {anchorPoint}, 绳长: {distanceFromPoint}");
     }
     
     public override void ExitBehaviour(float dt, CharacterState toState)
     {
         Debug.Log("退出使魔摆荡状态");
-        
-        
-        /*// 取消订阅事件
-        familiarController.OnFamiliarDeployed -= OnFamiliarDeployed;
-        familiarController.OnRecallImpact -= OnRecallImpact;*/
-        
-        // 恢复重力
-        //CharacterActor.UseGravity = true;
-        //CharacterActor.RigidbodyComponent.UseGravity = true;
-        // 停止摆荡
-        //swingPhysics.StopSwing();
-        
-        // 释放使魔
-        //familiarController.ReleaseFamiliar();
         
         
     }
@@ -178,17 +143,17 @@ public class FamiliarSwingState : CharacterState
         CharacterActor.VerticalVelocity += -CharacterActor.Up * swingGravity * dt;
 
         //输入微调
-        /*Vector2 input = CharacterActions.movement.value;  // CCP 自带 W/A/S/D
+        Vector2 inputVelocity = CharacterActions.movement.value;
         Vector3 camRight  = CharacterStateController.MovementReferenceRight;
         Vector3 camForward= CharacterStateController.MovementReferenceForward;
-        CharacterActor.PlanarVelocity +=
-            (camRight * input.x + camForward * input.y) * airControl;*/
+        //CharacterActor.PlanarVelocity += (camRight * inputVelocity.x + camForward * inputVelocity.y) * airControl;
+        CharacterActor.PlanarVelocity += (camForward * inputVelocity.y) * airControl;
 
-        // 3) 绳约束 —— 把角色拉回半径 = ropeLength 的球面
+        //绳约束 —— 把角色拉回半径 = ropeLength 的球面
         Vector3 toAnchor = CharacterActor.Position - anchorPoint;
         float dist = toAnchor.magnitude;
 
-        if (dist > ropeLength)
+        /*if (dist > ropeLength)
         {
             Vector3 dir = toAnchor / dist;
 
@@ -197,7 +162,23 @@ public class FamiliarSwingState : CharacterState
 
             // 3‑b 速度分解：去掉指向 anchor 的分量
             CharacterActor.Velocity = Vector3.ProjectOnPlane(CharacterActor.Velocity, dir);
+        }*/
+        if (dist > ropeLength)
+        {
+            Vector3 dir = toAnchor / dist;
+
+            // ① 位置回到圆面
+            CharacterActor.Position = anchorPoint + dir * ropeLength;
+
+            // ② 把“指向锚点”的分量拿掉，并乘 tensionMultiplier
+            float vRadial = Vector3.Dot(CharacterActor.Velocity, dir);
+            if (vRadial > 0f)           // 只处理向外拉长的分量
+                CharacterActor.Velocity -= dir * vRadial * tensionMultiplier;
         }
+
+        
+        //阻尼
+        CharacterActor.Velocity *= damping;
     }
     
     /// <summary>
@@ -230,6 +211,7 @@ public class FamiliarSwingState : CharacterState
         {
             //Debug.Log("Relase Swing");
             wantToRelease = true;
+            PerformRelease();
         }
     }
     
@@ -248,13 +230,20 @@ public class FamiliarSwingState : CharacterState
     /// </summary>
     private void PerformRelease()
     {
-        // 获取释放速度
-        //Vector3 releaseVelocity = swingPhysics.ReleaseSwing();
+        /*if (wantToRelease)
+        {
+            CharacterActor.alwaysNotGrounded = false;   // 让重力/落地逻辑恢复正常
+            CharacterStateController.EnqueueTransition<NormalMovement>();
+        }*/
         
-        // 应用到角色
-        //CharacterActor.SetVelocity(releaseVelocity);
-        //CharacterActor.Velocity = releaseVelocity;
-        //Debug.Log($"释放摆荡，速度: {releaseVelocity}");
+        if (!wantToRelease) return;
+
+        Vector3 v = CharacterActor.Velocity * releaseVelocityBoost;
+        CharacterActor.Velocity = v;
+
+        CharacterActor.alwaysNotGrounded = false;
+        ReleaseFamiliar();
+        CharacterStateController.EnqueueTransition<NormalMovement>();
     }
     
     /// <summary>
@@ -313,5 +302,42 @@ public class FamiliarSwingState : CharacterState
         //OnFamiliarDeployed?.Invoke(AnchorPosition);
         //StartSwing();
         Debug.Log($"使魔已部署到: {AnchorPosition}");
+    }
+    
+    /// <summary>
+    /// 释放使魔
+    /// </summary>
+    public void ReleaseFamiliar()
+    {
+        if (currentFamiliar != null)
+        {
+            Destroy(currentFamiliar);
+            currentFamiliar = null;
+        }
+        
+        //chainRenderer.enabled = false;
+        IsDeployed = false;
+        IsRecalling = false;
+        AnchorPosition = Vector3.zero;
+    }
+    
+    /// <summary>
+    /// 绘制调试信息
+    /// </summary>
+    void OnDrawGizmos()
+    {
+        if (!isSwinging) return;
+        
+        // 绘制绳索
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(playerTransform.position, anchorPoint);
+        
+        // 绘制锚点
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(anchorPoint, 0.2f);
+        
+        // 绘制速度方向
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawRay(playerTransform.position, velocity.normalized * 2f);
     }
 }
