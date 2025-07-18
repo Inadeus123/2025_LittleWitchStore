@@ -15834,13 +15834,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889249035}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4e192a566f9f34f9a77b7d66284d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   overrideAnimatorController: 1
   runtimeAnimatorController: {fileID: 0}
+  familiarPrefab: {fileID: 6629341592054300516, guid: 639bf8ee72d96e547943c384cb679cc4, type: 3}
+  anchorHeight: 5
+  anchorForwardOffset: 2
+  recallSpeed: 30
+  recallImpactForce: 15
+  recallImpactRadius: 1
   minSwingHeight: 2
   allowGroundExit: 1
   inputHandler: {fileID: 966790965}
@@ -16167,7 +16173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9185057a300d7bf41bd35dfdcea6ac3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  familiarPrefab: {fileID: 6560004252832991709, guid: 3ce57482f6ce8e44cb40fcded6d016ec, type: 3}
+  familiarPrefab: {fileID: 0}
   anchorHeight: 5
   anchorForwardOffset: 2
   recallSpeed: 30

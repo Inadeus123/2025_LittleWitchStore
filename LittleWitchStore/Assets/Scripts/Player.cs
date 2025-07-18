@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
             controller.EnqueueTransition<RunFastState>();
         }
         
-        // 检查是否按下了使魔键（假设用F键）
+        // 检查是否按下了摆荡
         if (inputSystemHandler.GetButtonDown("Swing"))
         {
             Debug.Log("Press B, Ready for swing");

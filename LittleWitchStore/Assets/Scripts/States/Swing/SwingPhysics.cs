@@ -21,6 +21,12 @@ public class SwingPhysics : MonoBehaviour
     private Vector3 anchorPoint;
     private bool isSwinging;
     
+    [Header("Swinging")] 
+    private float maxSwingDistance = 3f;
+    private Vector3 swingPoint;
+    private SpringJoint joint;
+    private Transform player;
+    
     // 组件引用
     //private CharacterController characterController;
     private CharacterActor characterActor;
@@ -41,15 +47,34 @@ public class SwingPhysics : MonoBehaviour
     /// </summary>
     public void StartSwing(Vector3 anchor, Vector3 initialVelocity)
     {
-        anchorPoint = anchor;
+        /*anchorPoint = anchor;
         position = transform.position;
         velocity = initialVelocity;
         isSwinging = true;
         
         // 计算实际绳索长度
         ropeLength = Vector3.Distance(position, anchorPoint);
+        */
         
-        Debug.Log($"开始摆荡 - 锚点: {anchorPoint}, 绳长: {ropeLength}");
+        
+        anchorPoint = anchor;
+        position =transform.position;
+        velocity = initialVelocity;
+        isSwinging = true;
+        player = GetComponent<Transform>();
+
+        joint = player.gameObject.AddComponent<SpringJoint>();
+        joint.autoConfigureConnectedAnchor = false;
+        joint.connectedAnchor = anchorPoint;
+        float distanceFromPoint = Vector3.Distance(position, anchorPoint);
+        
+        joint.maxDistance = distanceFromPoint * 0.8f;
+        joint.minDistance = distanceFromPoint * 0.25f;
+        joint.spring = 4.5f;
+        joint.damper = 7f;
+        joint.massScale = 4.5f;
+        
+        Debug.Log($"开始摆荡 - 锚点: {anchorPoint}, 绳长: {distanceFromPoint}");
     }
     
     /// <summary>
