@@ -551,11 +551,11 @@ namespace Lightbug.CharacterControllerPro.Demo
                 {
                     case JumpResult.Grounded:
                         groundedJumpAvailable = false;
-
+                        CharacterStateController.Animator.SetInteger("JumpPhase", 1);
                         break;
                     case JumpResult.NotGrounded:
                         notGroundedJumpsLeft--;
-
+                        CharacterStateController.Animator.SetInteger("JumpPhase", 2);
                         break;
 
                     case JumpResult.Invalid:
@@ -748,6 +748,9 @@ namespace Lightbug.CharacterControllerPro.Demo
             // The PostSimulationUpdate (CharacterActor) might update velocity once more (e.g. if a "bad step" has been detected).
             CharacterStateController.Animator.SetFloat(verticalSpeedParameter, CharacterActor.LocalVelocity.y);
             CharacterStateController.Animator.SetFloat(planarSpeedParameter, CharacterActor.PlanarVelocity.magnitude);
+            
+            if (CharacterActor.IsGrounded)
+                CharacterStateController.Animator.SetInteger("JumpPhase", 0);
         }
 
         protected virtual void HandleSize(float dt)

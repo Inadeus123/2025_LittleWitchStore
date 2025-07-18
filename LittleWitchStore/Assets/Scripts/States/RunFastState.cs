@@ -257,12 +257,7 @@ using Lightbug.CharacterControllerPro.Implementation;
         {
             //Debug.Log("Enter CheckRunFastStateExitTransition");
             // 按T键退出
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                Debug.Log("CheckRunFastStateExitTransition");
-                CharacterStateController.EnqueueTransition<NormalMovement>();
-                return;
-            }
+           
         }
 
         public override void ExitBehaviour(float dt, CharacterState toState)
@@ -814,6 +809,14 @@ using Lightbug.CharacterControllerPro.Implementation;
 
         public override void UpdateBehaviour(float dt)
         {
+            
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Debug.Log("CheckRunFastStateExitTransition");
+                CharacterStateController.EnqueueTransition<NormalMovement>();
+                return;
+            }
+            
             HandleSize(dt);
             HandleVelocity(dt);
             HandleRotation(dt);
@@ -836,6 +839,8 @@ using Lightbug.CharacterControllerPro.Implementation;
         
             // 更新视觉效果
             UpdateVisuals(dt);
+            
+            
         }
         
         protected virtual void HandleInput(float dt)
