@@ -15849,6 +15849,8 @@ MonoBehaviour:
   airControl: 1
   damping: 0.98
   tensionMultiplier: 1.2
+  minLaunchSpeed: 6
+  maxLaunchSpeed: 21
   releaseVelocityBoost: 2
   recallSpeed: 30
   recallImpactForce: 15

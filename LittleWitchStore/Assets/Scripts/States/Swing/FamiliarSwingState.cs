@@ -19,7 +19,9 @@ public class FamiliarSwingState : CharacterState
     [SerializeField] float swingGravity = 35f;   // 与 NormalMovement 的重力保持一致
     [SerializeField] float airControl   = 3f;    // 空中对摆荡速度的微调程度
     [SerializeField] float damping = 0.98f;   // 阻尼系数
-    [SerializeField] float tensionMultiplier = 1.2f;   // >1 会稍微向内“回弹”，<1 会软一点
+    [SerializeField] float tensionMultiplier = 1.2f;   // 绳张力
+    [SerializeField] float minLaunchSpeed = 6f;     // 小于此值就帮玩家补足
+    [SerializeField] float maxLaunchSpeed = 18f;    // 大于此值就裁掉
     
     [Header("= 释放参数 =")]
     [SerializeField] private float releaseVelocityBoost = 1.1f; // 释放时的速度增益
@@ -112,9 +114,24 @@ public class FamiliarSwingState : CharacterState
         DeployFamiliar();
         anchorPoint = AnchorPosition;            // 由你的 DeployFamiliar 算好的挂点
         // 把当前速度投影到绳切线，作为初始摆速
+        /*Vector3 toAnchor = anchorPoint - CharacterActor.Position;
+        Vector3 tangent  = Vector3.Cross(toAnchor, CharacterActor.Right).normalized;
+        CharacterActor.Velocity = Vector3.Project(CharacterActor.Velocity, tangent);*/
         Vector3 toAnchor = anchorPoint - CharacterActor.Position;
         Vector3 tangent  = Vector3.Cross(toAnchor, CharacterActor.Right).normalized;
-        CharacterActor.Velocity = Vector3.Project(CharacterActor.Velocity, tangent);
+
+        Vector3 tangentialVel = Vector3.Project(CharacterActor.Velocity, tangent);
+
+        // ----------- 新增：速度裁剪 -----------
+        float speed = tangentialVel.magnitude;
+        if (speed < minLaunchSpeed)        // 不够快 → 补到下限方向不变
+            tangentialVel = tangent * minLaunchSpeed;
+        else if (speed > maxLaunchSpeed)   // 太快   → 裁到上限
+            tangentialVel = tangentialVel.normalized * maxLaunchSpeed;
+        // --------------------------------------
+
+        CharacterActor.Velocity = tangentialVel;
+
 
         CharacterActor.alwaysNotGrounded = true; // 不要被判定 grounded
         
@@ -148,7 +165,8 @@ public class FamiliarSwingState : CharacterState
         Vector3 camForward= CharacterStateController.MovementReferenceForward;
         //CharacterActor.PlanarVelocity += (camRight * inputVelocity.x + camForward * inputVelocity.y) * airControl;
         CharacterActor.PlanarVelocity += (camForward * inputVelocity.y) * airControl;
-
+        Debug.Log("Current Velocity " + CharacterActor.PlanarVelocity);
+        
         //绳约束 —— 把角色拉回半径 = ropeLength 的球面
         Vector3 toAnchor = CharacterActor.Position - anchorPoint;
         float dist = toAnchor.magnitude;
