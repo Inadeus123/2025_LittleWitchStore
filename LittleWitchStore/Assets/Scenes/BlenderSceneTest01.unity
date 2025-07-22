@@ -3007,7 +3007,7 @@ PrefabInstance:
     - target: {fileID: 3766918289639524365, guid: 3ce57482f6ce8e44cb40fcded6d016ec, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2121761247}
     - target: {fileID: 5424915491398511678, guid: 3ce57482f6ce8e44cb40fcded6d016ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.733
@@ -3200,15 +3200,15 @@ PrefabInstance:
       objectReference: {fileID: 122963065}
     - target: {fileID: 3029856772703370648, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 178.73
       objectReference: {fileID: 0}
     - target: {fileID: 3029856772703370648, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 385.21
       objectReference: {fileID: 0}
     - target: {fileID: 3029856772703370648, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 496.6
       objectReference: {fileID: 0}
     - target: {fileID: 3029856772703370648, guid: 701ee390360909d47bbdec18fa8fe28a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5717,18 +5717,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8330e7cc719e68408c365150aa92dee, type: 2}
     - target: {fileID: -1460633226060025076, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8330e7cc719e68408c365150aa92dee, type: 2}
+    - target: {fileID: -804731622281664130, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d8330e7cc719e68408c365150aa92dee, type: 2}
     - target: {fileID: -678588488315902003, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a59698748c807d54f8d50ebf3007a9a5, type: 2}
+      objectReference: {fileID: 2100000, guid: d8330e7cc719e68408c365150aa92dee, type: 2}
+    - target: {fileID: 805098333363774982, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8330e7cc719e68408c365150aa92dee, type: 2}
     - target: {fileID: 919132149155446097, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
       propertyPath: m_Name
       value: BlenderSceneTest
       objectReference: {fileID: 0}
+    - target: {fileID: 5015415391883453526, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8330e7cc719e68408c365150aa92dee, type: 2}
+    - target: {fileID: 6514335277548776967, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8330e7cc719e68408c365150aa92dee, type: 2}
+    - target: {fileID: 7622661218638243942, guid: fa0735442ce8a1d48be71c4e9a7bc46c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8330e7cc719e68408c365150aa92dee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5962,6 +5986,10 @@ PrefabInstance:
     - target: {fileID: 7337102887516324405, guid: 1378bb215f0d7b8488519d087524f009, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007443118259534463, guid: 1378bb215f0d7b8488519d087524f009, type: 3}
+      propertyPath: far clip plane
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
