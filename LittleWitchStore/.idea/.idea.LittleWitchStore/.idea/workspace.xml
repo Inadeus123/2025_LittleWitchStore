@@ -7,9 +7,10 @@
     <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../BlenderSceneTest.blend" beforeDir="false" afterPath="$PROJECT_DIR$/../BlenderSceneTest.blend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BlenderSceneTest.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/../BlenderSceneTest.blend1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BlenderSceneTest.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/../BlenderSceneTest.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/BlenderModels/BlenderSceneTest.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BlenderModels/BlenderSceneTest.fbx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlenderSceneTest01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlenderSceneTest01.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo_MovementTest.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +153,7 @@
       <workItem from="1752732448357" duration="1233000" />
       <workItem from="1752809569734" duration="21982000" />
       <workItem from="1752900937000" duration="4178000" />
+      <workItem from="1753522585060" duration="903000" />
     </task>
     <servers />
   </component>
