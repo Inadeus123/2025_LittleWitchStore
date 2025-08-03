@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="" />
+    <list default="true" id="e4f16336-05bc-499c-ae09-206fe7fcec28" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../BlenderSceneTest.blend" beforeDir="false" afterPath="$PROJECT_DIR$/../BlenderSceneTest.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlenderSceneTest.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/../BlenderSceneTest.blend1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BlenderModels/BlenderSceneTest.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BlenderModels/BlenderSceneTest.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlenderSceneTest01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlenderSceneTest01.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,6 +153,7 @@
       <workItem from="1752900937000" duration="4178000" />
       <workItem from="1753522585060" duration="2313000" />
       <workItem from="1753594835598" duration="5540000" />
+      <workItem from="1753761526626" duration="770000" />
     </task>
     <servers />
   </component>
