@@ -100,7 +100,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""FamiliarAct"",
+                    ""name"": ""ThrowHead"",
                     ""type"": ""Button"",
                     ""id"": ""5cfabab4-3a12-41a8-a6d1-127e6bbd6a07"",
                     ""expectedControlType"": ""Button"",
@@ -212,7 +212,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""FamiliarAct"",
+                    ""action"": ""ThrowHead"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -292,7 +292,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
         m_Gameplay_OpenWheel = m_Gameplay.FindAction("OpenWheel", throwIfNotFound: true);
         m_Gameplay_ConfirmCommand = m_Gameplay.FindAction("ConfirmCommand", throwIfNotFound: true);
-        m_Gameplay_FamiliarAct = m_Gameplay.FindAction("FamiliarAct", throwIfNotFound: true);
+        m_Gameplay_ThrowHead = m_Gameplay.FindAction("ThrowHead", throwIfNotFound: true);
         m_Gameplay_Camera = m_Gameplay.FindAction("Camera", throwIfNotFound: true);
         m_Gameplay_Swing = m_Gameplay.FindAction("Swing", throwIfNotFound: true);
         // ClimbStack
@@ -367,7 +367,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Dash;
     private readonly InputAction m_Gameplay_OpenWheel;
     private readonly InputAction m_Gameplay_ConfirmCommand;
-    private readonly InputAction m_Gameplay_FamiliarAct;
+    private readonly InputAction m_Gameplay_ThrowHead;
     private readonly InputAction m_Gameplay_Camera;
     private readonly InputAction m_Gameplay_Swing;
     public struct GameplayActions
@@ -382,7 +382,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
         public InputAction @OpenWheel => m_Wrapper.m_Gameplay_OpenWheel;
         public InputAction @ConfirmCommand => m_Wrapper.m_Gameplay_ConfirmCommand;
-        public InputAction @FamiliarAct => m_Wrapper.m_Gameplay_FamiliarAct;
+        public InputAction @ThrowHead => m_Wrapper.m_Gameplay_ThrowHead;
         public InputAction @Camera => m_Wrapper.m_Gameplay_Camera;
         public InputAction @Swing => m_Wrapper.m_Gameplay_Swing;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -418,9 +418,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @ConfirmCommand.started += instance.OnConfirmCommand;
             @ConfirmCommand.performed += instance.OnConfirmCommand;
             @ConfirmCommand.canceled += instance.OnConfirmCommand;
-            @FamiliarAct.started += instance.OnFamiliarAct;
-            @FamiliarAct.performed += instance.OnFamiliarAct;
-            @FamiliarAct.canceled += instance.OnFamiliarAct;
+            @ThrowHead.started += instance.OnThrowHead;
+            @ThrowHead.performed += instance.OnThrowHead;
+            @ThrowHead.canceled += instance.OnThrowHead;
             @Camera.started += instance.OnCamera;
             @Camera.performed += instance.OnCamera;
             @Camera.canceled += instance.OnCamera;
@@ -455,9 +455,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @ConfirmCommand.started -= instance.OnConfirmCommand;
             @ConfirmCommand.performed -= instance.OnConfirmCommand;
             @ConfirmCommand.canceled -= instance.OnConfirmCommand;
-            @FamiliarAct.started -= instance.OnFamiliarAct;
-            @FamiliarAct.performed -= instance.OnFamiliarAct;
-            @FamiliarAct.canceled -= instance.OnFamiliarAct;
+            @ThrowHead.started -= instance.OnThrowHead;
+            @ThrowHead.performed -= instance.OnThrowHead;
+            @ThrowHead.canceled -= instance.OnThrowHead;
             @Camera.started -= instance.OnCamera;
             @Camera.performed -= instance.OnCamera;
             @Camera.canceled -= instance.OnCamera;
@@ -537,7 +537,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnOpenWheel(InputAction.CallbackContext context);
         void OnConfirmCommand(InputAction.CallbackContext context);
-        void OnFamiliarAct(InputAction.CallbackContext context);
+        void OnThrowHead(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnSwing(InputAction.CallbackContext context);
     }

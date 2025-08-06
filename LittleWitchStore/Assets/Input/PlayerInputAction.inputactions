@@ -78,7 +78,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "FamiliarAct",
+                    "name": "ThrowHead",
                     "type": "Button",
                     "id": "5cfabab4-3a12-41a8-a6d1-127e6bbd6a07",
                     "expectedControlType": "Button",
@@ -190,7 +190,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "FamiliarAct",
+                    "action": "ThrowHead",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

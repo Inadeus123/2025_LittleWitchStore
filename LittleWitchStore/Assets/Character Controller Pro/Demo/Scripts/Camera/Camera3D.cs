@@ -39,7 +39,7 @@ namespace Lightbug.CharacterControllerPro.Demo
         [Header("Inputs")]
 
         [SerializeField]
-        InputHandlerSettings inputHandlerSettings = new InputHandlerSettings();
+        public InputHandlerSettings inputHandlerSettings = new InputHandlerSettings();
 
         [SerializeField]
         string axes = "Camera";
@@ -52,7 +52,7 @@ namespace Lightbug.CharacterControllerPro.Demo
 
         [Tooltip("Select the graphics root object as your target, the one containing all the meshes, sprites, animated models, etc. \n\nImportant: This will be the considered as the actual target (visual element).")]
         [SerializeField]
-        Transform targetTransform = null;
+        public Transform targetTransform = null;
 
         [SerializeField]
         Vector3 offsetFromHead = Vector3.zero;
@@ -70,7 +70,7 @@ namespace Lightbug.CharacterControllerPro.Demo
         public bool hideBody = true;
 
         [SerializeField]
-        GameObject bodyObject = null;
+        public GameObject bodyObject = null;
 
         [Header("Yaw")]
 

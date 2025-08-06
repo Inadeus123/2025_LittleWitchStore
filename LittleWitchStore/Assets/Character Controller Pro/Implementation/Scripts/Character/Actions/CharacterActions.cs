@@ -17,7 +17,7 @@ public struct CharacterActions
 	public BoolAction @crouch;
 	public BoolAction @attack;
 	public BoolAction @openwheel;
-	public BoolAction @familiaract;
+	public BoolAction @throwhead;
 	public BoolAction @swing;
 
 
@@ -51,7 +51,7 @@ public struct CharacterActions
 		@crouch.Reset();
 		@attack.Reset();
 		@openwheel.Reset();
-		@familiaract.Reset();
+		@throwhead.Reset();
 		@swing.Reset();
 
 		@pitch.Reset();
@@ -91,8 +91,8 @@ public struct CharacterActions
 		@openwheel = new BoolAction();
 		@openwheel.Initialize();
 
-		@familiaract = new BoolAction();
-		@familiaract.Initialize();
+		@throwhead = new BoolAction();
+		@throwhead.Initialize();
 
 		@swing = new BoolAction();
 		@swing.Initialize();
@@ -122,7 +122,7 @@ public struct CharacterActions
 		@crouch.value = inputHandler.GetBool( "Crouch" );
 		@attack.value = inputHandler.GetBool( "Attack" );
 		@openwheel.value = inputHandler.GetBool( "OpenWheel" );
-		@familiaract.value = inputHandler.GetBool( "FamiliarAct" );
+		@throwhead.value = inputHandler.GetBool( "ThrowHead" );
 		@swing.value = inputHandler.GetBool( "Swing" );
 
 		@pitch.value = inputHandler.GetFloat( "Pitch" );
@@ -146,7 +146,7 @@ public struct CharacterActions
 		@crouch.value = characterActions.crouch.value;
 		@attack.value = characterActions.attack.value;
 		@openwheel.value = characterActions.openwheel.value;
-		@familiaract.value = characterActions.familiaract.value;
+		@throwhead.value = characterActions.throwhead.value;
 		@swing.value = characterActions.swing.value;
 
 		@pitch.value = characterActions.pitch.value;
@@ -172,7 +172,7 @@ public struct CharacterActions
 		@crouch.Update( dt );
 		@attack.Update( dt );
 		@openwheel.Update( dt );
-		@familiaract.Update( dt );
+		@throwhead.Update( dt );
 		@swing.Update( dt );
 
     }
