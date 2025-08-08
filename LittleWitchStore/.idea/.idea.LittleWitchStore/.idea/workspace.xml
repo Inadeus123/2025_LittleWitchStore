@@ -8,14 +8,8 @@
       <change beforePath="$PROJECT_DIR$/../BlenderSceneTest.blend" beforeDir="false" afterPath="$PROJECT_DIR$/../BlenderSceneTest.blend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BlenderSceneTest.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/../BlenderSceneTest.blend1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LittleWitchStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/Camera/Camera3D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Demo/Scripts/Camera/Camera3D.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character Controller Pro/Implementation/Scripts/Character/Actions/CharacterActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character Controller Pro/Implementation/Scripts/Character/Actions/CharacterActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/CCPInputPart/MyCharacterActions.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/CCPInputPart/MyCharacterActions.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInputAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInputAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerInputAction.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerInputAction.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlenderSceneTest01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlenderSceneTest01.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +160,9 @@
       <workItem from="1754290072212" duration="1977000" />
       <workItem from="1754400457236" duration="1033000" />
       <workItem from="1754463857942" duration="2405000" />
-      <workItem from="1754483962155" duration="5165000" />
+      <workItem from="1754483962155" duration="5408000" />
+      <workItem from="1754542831655" duration="7778000" />
+      <workItem from="1754617265612" duration="4935000" />
     </task>
     <servers />
   </component>
@@ -191,10 +187,10 @@
           <line>278</line>
           <properties documentPath="D:\Unity\Project\GitProject\2025_LittleWitchStore\LittleWitchStore\Assets\Character Controller Pro\Demo\Scripts\Camera\Camera3D.cs" containingFunctionPresentation="方法 'Update'">
             <startOffsets>
-              <option value="8124" />
+              <option value="8131" />
             </startOffsets>
             <endOffsets>
-              <option value="8196" />
+              <option value="8203" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
